@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+html {
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif; }
+
+body {
+  background-color: #ff886a;
+  padding: 0;
+  margin: 0;
+  height: 100%; }
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.app {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%; }
+
+dw-home {
+  max-width: 400px;
+  margin: auto; }
+
+dw-login {
+  max-width: 400px;
+  margin: auto; }
+
+input[type="text"],
+input[type="email"] {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.3);
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border: 1px solid white; }
+
+button {
+  font-size: 20px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  padding: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid white;
+  color: white;
+  font-weight: 100;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
+  button:hover {
+    background-color: white;
+    color: black; }
+
+.field-label {
+  margin-bottom: 10px; }
+
+.form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.form-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .row .form-item + .form-item {
+    margin-left: 25px; }
+
+.message {
+  padding: 15px;
+  border: 1px solid white; }
