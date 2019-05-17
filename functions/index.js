@@ -22,17 +22,20 @@ exports.getProfile = functions.https.onRequest((request, response) => {
      .then(function(results) {
       response.json(results);
      })
-     .catch(function (err) {
+     .catch(function (error) {
       response.json({
-       error: err
+       message: 'Something went wrong',
+       stack: error
       });
      });
   }
  })
  .catch(error => {
-  console.log(error)
   response.json({
-   error: 'User not found'
+   error: {
+    message: 'User not found',
+    stack: error
+   }
   });
  });
 });
@@ -43,7 +46,7 @@ exports.updateProfile = functions.https.onRequest((request, response) => {
 
   if (user && user.email) {
    let subscriberHash = md5(user.email.toLowerCase());
-   mailchimp.get(`/lists/d07c3eb514/members/${subscriberHash}`)
+   mailchimp.put(`/lists/d07c3eb514/members/${subscriberHash}`)
      .then(function(results) {
       response.json(results);
      })

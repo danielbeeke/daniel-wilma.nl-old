@@ -1,11 +1,14 @@
 input[type="text"],
 input[type="email"] {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   border: 1px solid transparent;
   background-color: rgba(white, .3);
   transition: all .3s ease-in-out;
   border-radius: 3px;
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
 
   &:focus {
     border: 1px solid white;
@@ -22,6 +25,7 @@ button {
   font-weight: 100;
   background-color: transparent;
   cursor: pointer;
+  margin-top: 30px;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 4px;
@@ -35,11 +39,21 @@ button {
 
 .field-label {
   margin-bottom: 10px;
+  color: rgba(black, .5);
+  font-size: 14px;
+  margin-left: 2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  transition: all .3s ease-in-out;
+
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 .form-item {
