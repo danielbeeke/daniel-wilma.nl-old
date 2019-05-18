@@ -79,10 +79,38 @@ button {
   letter-spacing: 4px;
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out; }
+  transition: all .3s ease-in-out;
+  position: relative; }
   button:hover {
     background-color: white;
     color: black; }
+  button.is-progressing {
+    pointer-events: none; }
+    button.is-progressing:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      z-index: 1;
+      -webkit-background-size: 50px 50px;
+      background-size: 50px 50px;
+      -webkit-animation: move 2s linear infinite;
+      animation: move 2s linear infinite;
+      -webkit-border-top-right-radius: 8px;
+      border-top-right-radius: 8px;
+      -webkit-border-bottom-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      -webkit-border-top-left-radius: 20px;
+      border-top-left-radius: 20px;
+      -webkit-border-bottom-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      overflow: hidden;
+      animation: move 2s linear infinite; }
 
 .field-label {
   margin-bottom: 10px;
@@ -91,6 +119,52 @@ button {
   margin-left: 2px;
   letter-spacing: 3px;
   text-transform: uppercase; }
+
+.radio-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+  position: relative;
+  cursor: pointer; }
+  .radio-label span:before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    position: relative;
+    top: -3px;
+    float: left;
+    left: -3px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 13px; }
+  .radio-label span:after {
+    content: '';
+    display: inline-block;
+    width: 14.4px;
+    height: 14.4px;
+    border: 1px solid transparent;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 15px;
+    opacity: 0; }
+  .radio-label input:checked + span:after {
+    opacity: 1; }
+  .radio-label input {
+    display: none; }
 
 .form {
   display: -webkit-box;
@@ -126,6 +200,21 @@ button {
   display: flex; }
   .row .form-item + .form-item {
     margin-left: 25px; }
+
+.radio-wrapper {
+  margin-bottom: 25px; }
+
+@-webkit-keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 50px; } }
+
+@keyframes move {
+  0% {
+    background-position: 0 0; }
+  100% {
+    background-position: 50px 50px; } }
 
 .message {
   padding: 15px;

@@ -24,12 +24,17 @@ class App extends EventTarget {
     firebase.auth().onAuthStateChanged((user) => {
       app.user = user;
 
-      fetch(`http://localhost:5001/trouwen-d591e/us-central1/getProfile?uid=${app.user.uid}`)
-      .then(response => response.json())
-      .then(mailchimp => {
-        app.mailchimp = mailchimp;
-        this.dispatchEvent(new CustomEvent('user.mailchimp'));
-      });
+      if (app.user) {
+        fetch(`http://localhost:5001/trouwen-d591e/us-central1/getProfile?uid=${app.user.uid}`)
+          .then(response => response.json())
+          .then(mailchimp => {
+            app.mailchimp = mailchimp;
+            this.dispatchEvent(new CustomEvent('user.mailchimp'));
+          });
+      }
+      else {
+        app.router.navigate('login');
+      }
 
       this.dispatchEvent(new CustomEvent('user.profile'));
     });

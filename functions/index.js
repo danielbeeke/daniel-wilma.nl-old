@@ -8,61 +8,63 @@ const mailchimp = new Mailchimp(functions.config().mailchimp.key);
 const serviceAccount = require('./../serviceAccountKey.json');
 
 admin.initializeApp({
- credential: admin.credential.cert(serviceAccount),
- databaseURL: "https://trouwen-d591e.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://trouwen-d591e.firebaseio.com"
 });
 
 exports.getProfile = functions.https.onRequest((request, response) => {
- const uid = request.query.uid;
- admin.auth().getUser(uid).then(user => {
+  const uid = request.query.uid;
+  admin.auth().getUser(uid).then(user => {
 
-  if (user && user.email) {
-   let subscriberHash = md5(user.email.toLowerCase());
-   mailchimp.get(`/lists/d07c3eb514/members/${subscriberHash}`)
-     .then(function(results) {
-      response.json(results);
-     })
-     .catch(function (error) {
+    if (user && user.email) {
+      let subscriberHash = md5(user.email.toLowerCase());
+      mailchimp.get(`/lists/d07c3eb514/members/${subscriberHash}`)
+        .then(function (results) {
+          response.json(results);
+        })
+        .catch(function (error) {
+          response.json({
+            message: 'Something went wrong',
+            stack: error
+          });
+        });
+    }
+  })
+    .catch(error => {
       response.json({
-       message: 'Something went wrong',
-       stack: error
+        error: {
+          message: 'User not found',
+          stack: error
+        }
       });
-     });
-  }
- })
- .catch(error => {
-  response.json({
-   error: {
-    message: 'User not found',
-    stack: error
-   }
-  });
- });
+    });
 });
 
 exports.updateProfile = functions.https.onRequest((request, response) => {
- const uid = request.query.uid;
- admin.auth().getUser(uid).then(user => {
+  const uid = request.query.uid;
+  admin.auth().getUser(uid).then(user => {
 
-  if (user && user.email) {
-   let subscriberHash = md5(user.email.toLowerCase());
-   mailchimp.put(`/lists/d07c3eb514/members/${subscriberHash}`)
-     .then(function(results) {
-      response.json(results);
-     })
-     .catch(function (err) {
+    if (user && user.email) {
+      let subscriberHash = md5(user.email.toLowerCase());
+      mailchimp.patch(`/lists/d07c3eb514/members/${subscriberHash}`, {
+        merge_fields: request.body.merge_fields
+      })
+        .then(function (results) {
+          response.json(results);
+        })
+        .catch(function (err) {
+          response.json({
+            error: err
+          });
+        });
+    }
+  })
+    .catch(error => {
+      console.log(error)
       response.json({
-       error: err
+        error: 'User not found'
       });
-     });
-  }
- })
-   .catch(error => {
-    console.log(error)
-    response.json({
-     error: 'User not found'
     });
-   });
 });
 
 
