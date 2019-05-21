@@ -1,10 +1,3 @@
 dw-form {
-  .address-zip {
-    flex: 1 1 30%;
-    max-width: 100px;
-  }
-
-  .city {
-    flex: 1 1 70%;
-  }
+  transition: all .3s ease-in-out;
 }

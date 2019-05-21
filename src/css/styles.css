@@ -14,6 +14,23 @@ body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; }
+
+json-form {
+  display: block;
+  padding: 20px 20px 25px;
+  background-color: white;
+  --font-family: 'Roboto', sans-serif;
+  --color-active: #2c5eac;
+  --color-active--054: #152c51;
+  --color-inactive: #8a8a8a;
+  --color-invalid: #c72227;
+  --form-background: #fff;
+  line-height: 12px; }
+
 .app {
   display: -webkit-box;
   display: -webkit-flex;
@@ -21,18 +38,10 @@ body {
   display: flex;
   height: 100%; }
 
-dw-form .address-zip {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 30%;
-  -ms-flex: 1 1 30%;
-  flex: 1 1 30%;
-  max-width: 100px; }
-
-dw-form .city {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 70%;
-  -ms-flex: 1 1 70%;
-  flex: 1 1 70%; }
+dw-form {
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
 
 dw-home {
   max-width: 400px;
@@ -84,33 +93,33 @@ button {
   button:hover {
     background-color: white;
     color: black; }
-  button.is-progressing {
+  button.not-clickable {
     pointer-events: none; }
-    button.is-progressing:after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-      background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-      z-index: 1;
-      -webkit-background-size: 50px 50px;
-      background-size: 50px 50px;
-      -webkit-animation: move 2s linear infinite;
-      animation: move 2s linear infinite;
-      -webkit-border-top-right-radius: 8px;
-      border-top-right-radius: 8px;
-      -webkit-border-bottom-right-radius: 8px;
-      border-bottom-right-radius: 8px;
-      -webkit-border-top-left-radius: 20px;
-      border-top-left-radius: 20px;
-      -webkit-border-bottom-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-      overflow: hidden;
-      animation: move 2s linear infinite; }
+  button.is-progressing:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    z-index: 1;
+    -webkit-background-size: 50px 50px;
+    background-size: 50px 50px;
+    -webkit-animation: move 2s linear infinite;
+    animation: move 2s linear infinite;
+    -webkit-border-top-right-radius: 8px;
+    border-top-right-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    -webkit-border-top-left-radius: 20px;
+    border-top-left-radius: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    overflow: hidden;
+    animation: move 2s linear infinite; }
 
 .field-label {
   margin-bottom: 10px;

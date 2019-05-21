@@ -37,9 +37,11 @@ button {
     color: black;
   }
 
-  &.is-progressing {
+  &.not-clickable {
     pointer-events: none;
+  }
 
+  &.is-progressing {
     &:after {
       content: "";
       position: absolute;

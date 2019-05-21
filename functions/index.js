@@ -13,58 +13,42 @@ admin.initializeApp({
 });
 
 exports.getProfile = functions.https.onRequest((request, response) => {
-  const uid = request.query.uid;
-  admin.auth().getUser(uid).then(user => {
+  const mail = request.query.mail;
+  const oneTimeLogin = request.query['one-time-login'];
 
-    if (user && user.email) {
-      let subscriberHash = md5(user.email.toLowerCase());
-      mailchimp.get(`/lists/d07c3eb514/members/${subscriberHash}`)
-        .then(function (results) {
-          response.json(results);
-        })
-        .catch(function (error) {
-          response.json({
-            message: 'Something went wrong',
-            stack: error
-          });
-        });
-    }
-  })
-    .catch(error => {
+  if (md5(`${mail}+zout-en-spekjes`) === oneTimeLogin) {
+    let subscriberHash = md5(mail.toLowerCase());
+    mailchimp.get(`/lists/d07c3eb514/members/${subscriberHash}`)
+    .then(function (results) {
+      response.json(results);
+    })
+    .catch(function (error) {
       response.json({
-        error: {
-          message: 'User not found',
-          stack: error
-        }
+        message: 'Something went wrong',
+        stack: error
       });
     });
+  }
 });
 
 exports.updateProfile = functions.https.onRequest((request, response) => {
-  const uid = request.query.uid;
-  admin.auth().getUser(uid).then(user => {
+  const mail = request.query.mail;
+  const oneTimeLogin = request.query['one-time-login'];
 
-    if (user && user.email) {
-      let subscriberHash = md5(user.email.toLowerCase());
-      mailchimp.patch(`/lists/d07c3eb514/members/${subscriberHash}`, {
-        merge_fields: request.body.merge_fields
-      })
-        .then(function (results) {
-          response.json(results);
-        })
-        .catch(function (err) {
-          response.json({
-            error: err
-          });
-        });
-    }
-  })
-    .catch(error => {
-      console.log(error)
+  if (md5(`${mail}+zout-en-spekjes`) === oneTimeLogin) {
+    let subscriberHash = md5(mail.toLowerCase());
+    mailchimp.patch(`/lists/d07c3eb514/members/${subscriberHash}`, {
+      merge_fields: request.body.merge_fields
+    })
+    .then(function (results) {
+      response.json(results);
+    })
+    .catch(function (error) {
       response.json({
-        error: 'User not found'
+        error: error
       });
     });
+  }
 });
 
 
