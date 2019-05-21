@@ -8,23 +8,13 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
     app.addEventListener('profile.loaded', () => {
       this.form = document.createElement('dw-form');
       this.form.classList.add('hidden');
+      this.form.classList.add('profile');
+
+      this.form.addEventListener('change', () => {
+        this.status = 'rest';
+      });
 
       this.form.schema = [
-        {
-          name: 'VOORNAAM',
-          label: 'Voornaam',
-          type: 'text'
-        },
-        {
-          name: 'ACHTERNAAM',
-          label: 'Achternaam',
-          type: 'text'
-        },
-        {
-          name: 'ADRES.addr1',
-          label: 'Straat en huisnummer',
-          type: 'text'
-        },
         {
           name: 'KOMT',
           label: 'Kom je ook?',
@@ -35,9 +25,47 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
           }
         },
         {
+          name: 'VOORNAAM',
+          label: 'Voornaam',
+          type: 'text',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
+          name: 'ACHTERNAAM',
+          label: 'Achternaam',
+          type: 'text',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
+          name: 'ADRES.addr1',
+          label: 'Straat en huisnummer',
+          type: 'text',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
+          name: 'ADRES.zip',
+          label: 'Postcode',
+          type: 'text',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
+          name: 'ADRES.city',
+          label: 'Woonplaats',
+          type: 'text',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
+          name: 'PERSONEN',
+          min: 1,
+          max: 10,
+          label: 'Aantal personen',
+          type: 'number',
+          visible: { 'KOMT': 'YES' }
+        },
+        {
           name: 'submit',
           nodeType: 'button',
-          innerHTML: 'Bijwerken',
+          innerHTML: 'Opslaan',
           onclick: (event) => {
             this.button = event.target;
             this.saveProfile()
@@ -64,7 +92,7 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
    */
   set status (status) {
     if (status === 'rest' && this.button) {
-      this.button.innerHTML = 'Bijwerken';
+      this.button.innerHTML = 'Opslaan';
       this.button.classList.remove('hidden');
       this.button.classList.remove('not-clickable');
     }
@@ -117,9 +145,6 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
         this.status = 'done';
         setTimeout(() => {
           this.status = 'reloading';
-          setTimeout(() => {
-            this.status = 'rest';
-          }, 1000);
         }, 3000);
       }
       else {

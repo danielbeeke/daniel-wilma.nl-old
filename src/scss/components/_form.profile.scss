@@ -1,0 +1,15 @@
+.form.profile {
+  .form-item-VOORNAAM,
+  .form-item-ACHTERNAAM {
+    min-width: 170px;
+    flex: 1 1 calc(50% - 40px);
+  }
+
+  .form-item-PERSONEN,
+  .form-item-ADRES-addr1,
+  .form-item-ADRES-zip,
+  .form-item-ADRES-city {
+    min-width: 170px;
+    flex: 1 1 calc(30% - 40px);
+  }
+}

@@ -2,9 +2,13 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
 
   constructor() {
     super();
+
+    this.visibilityData = {};
   }
 
   connectedCallback () {
+    this.classList.add('form');
+
     this.schema.forEach(field => {
       let type = field.nodeType || field.type;
       let prepareMethod = 'prepare' + type.capitalize();
@@ -14,6 +18,8 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
 
       this.processField(field, this);
     });
+
+    this.updateVisibility();
   }
 
   processField (field, parent) {
@@ -21,6 +27,7 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
     let id = field.id ? field.id : (field.value ? field.name + '-' + field.value : field.name);
     let fieldElement = document.createElement('div');
     fieldElement.classList.add('form-item-' + type);
+    fieldElement.classList.add('form-item-' + id.replace(/\./g, '-'));
     fieldElement.classList.add('form-item');
     parent.appendChild(fieldElement);
 
@@ -30,6 +37,19 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
       label.classList.add('field-label');
       label.setAttribute('for', id);
       fieldElement.appendChild(label);
+    }
+
+    if (field.visible) {
+      for (let [key, value] of Object.entries(field.visible)) {
+        if (!this.visibilityData[key]) {
+          this.visibilityData[key] = [];
+        }
+
+        this.visibilityData[key].push({
+          value: value,
+          field: fieldElement
+        })
+      }
     }
 
     if (!['radios', 'checkboxes'].includes(type)) {
@@ -44,6 +64,8 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
       if (mainElement.nodeName.toLowerCase() === 'input') {
         let updateValue = () => {
           index(this.data, field.name, mainElement.value);
+          this.updateVisibility();
+          this.dispatchEvent(new CustomEvent('change'));
         };
 
         mainElement.addEventListener('change', updateValue);
@@ -76,7 +98,15 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
         this.processField(child, fieldElement)
       });
     }
+  }
 
+  updateVisibility () {
+    Object.keys(this.visibilityData).forEach(fieldName => {
+      this.visibilityData[fieldName].forEach(visibilityRule => {
+        let addOrRemove = index(this.data, fieldName) === visibilityRule.value ? 'remove' : 'add';
+        visibilityRule.field.classList[addOrRemove]('hidden');
+      });
+    });
   }
 
   /**

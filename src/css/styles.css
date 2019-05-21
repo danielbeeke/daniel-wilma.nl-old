@@ -38,37 +38,6 @@ json-form {
   display: flex;
   height: 100%; }
 
-dw-form {
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out; }
-
-dw-home {
-  max-width: 400px;
-  margin: auto; }
-
-dw-login {
-  max-width: 400px;
-  margin: auto; }
-
-input[type="text"],
-input[type="email"] {
-  padding: 15px;
-  margin-bottom: 35px;
-  border: 1px solid transparent;
-  background-color: rgba(255, 255, 255, 0.3);
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  width: 100%;
-  max-width: 100%;
-  font-size: 16px; }
-  input[type="text"]:focus,
-  input[type="email"]:focus {
-    border: 1px solid white; }
-
 button {
   font-size: 20px;
   -webkit-border-radius: 15px;
@@ -89,37 +58,77 @@ button {
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
-  position: relative; }
+  position: relative;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  width: 144px;
+  text-align: center; }
   button:hover {
     background-color: white;
     color: black; }
   button.not-clickable {
     pointer-events: none; }
-  button.is-progressing:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-    background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-    z-index: 1;
-    -webkit-background-size: 50px 50px;
-    background-size: 50px 50px;
-    -webkit-animation: move 2s linear infinite;
-    animation: move 2s linear infinite;
-    -webkit-border-top-right-radius: 8px;
-    border-top-right-radius: 8px;
-    -webkit-border-bottom-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    -webkit-border-top-left-radius: 20px;
-    border-top-left-radius: 20px;
-    -webkit-border-bottom-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    overflow: hidden;
-    animation: move 2s linear infinite; }
+  button.is-progressing {
+    width: 100%; }
+    button.is-progressing:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+      z-index: 1;
+      -webkit-background-size: 50px 50px;
+      background-size: 50px 50px;
+      -webkit-animation: move 2s linear infinite;
+      animation: move 2s linear infinite;
+      -webkit-border-top-right-radius: 8px;
+      border-top-right-radius: 8px;
+      -webkit-border-bottom-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      -webkit-border-top-left-radius: 20px;
+      border-top-left-radius: 20px;
+      -webkit-border-bottom-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      overflow: hidden;
+      animation: move 2s linear infinite; }
+
+dw-form {
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
+
+dw-home {
+  max-width: 700px;
+  margin: auto;
+  width: 100%;
+  padding: 0 20px; }
+
+dw-login {
+  max-width: 400px;
+  margin: auto; }
+
+.form.profile .form-item-VOORNAAM,
+.form.profile .form-item-ACHTERNAAM {
+  min-width: 170px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 -webkit-calc(50% - 40px);
+  -ms-flex: 1 1 calc(50% - 40px);
+  flex: 1 1 calc(50% - 40px); }
+
+.form.profile .form-item-PERSONEN,
+.form.profile .form-item-ADRES-addr1,
+.form.profile .form-item-ADRES-zip,
+.form.profile .form-item-ADRES-city {
+  min-width: 170px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 -webkit-calc(30% - 40px);
+  -ms-flex: 1 1 calc(30% - 40px);
+  flex: 1 1 calc(30% - 40px); }
 
 .field-label {
   margin-bottom: 10px;
@@ -129,66 +138,47 @@ button {
   letter-spacing: 3px;
   text-transform: uppercase; }
 
-.radio-label {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 18px;
-  position: relative;
-  cursor: pointer; }
-  .radio-label span:before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border: 1px solid transparent;
-    background-color: rgba(255, 255, 255, 0.3);
-    -webkit-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    position: relative;
-    top: -3px;
-    float: left;
-    left: -3px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    margin-right: 13px; }
-  .radio-label span:after {
-    content: '';
-    display: inline-block;
-    width: 14.4px;
-    height: 14.4px;
-    border: 1px solid transparent;
-    background-color: rgba(0, 0, 0, 0.7);
-    -webkit-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    margin-right: 15px;
-    opacity: 0; }
-  .radio-label input:checked + span:after {
-    opacity: 1; }
-  .radio-label input {
-    display: none; }
+input[type="number"],
+input[type="text"],
+input[type="email"] {
+  padding: 15px;
+  margin-bottom: 35px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px; }
+  input[type="number"]:focus,
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    border: 1px solid white;
+    -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.17);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.17); }
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none; }
 
 .form {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out; }
+  transition: all .3s ease-in-out;
+  padding: 30px; }
   .form.hidden {
+    padding: 0;
+    margin: 0;
     opacity: 0; }
 
 .form-item {
@@ -196,22 +186,41 @@ button {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-transition: all 0.3s cubic-bezier(0.2, 0.1, 0.29, 0.98);
+  -o-transition: all 0.3s cubic-bezier(0.2, 0.1, 0.29, 0.98);
+  transition: all 0.3s cubic-bezier(0.2, 0.1, 0.29, 0.98);
+  max-height: 160px;
+  margin: 0 20px;
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+  .form-item:first-child {
+    margin-top: 20px; }
+  .form-item.hidden {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    -webkit-transform: translate(-40px, -5px);
+    -ms-transform: translate(-40px, -5px);
+    transform: translate(-40px, -5px); }
 
-.row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  .row .form-item + .form-item {
-    margin-left: 25px; }
-
-.radio-wrapper {
-  margin-bottom: 25px; }
+.form-item-radios {
+  margin-bottom: 30px; }
+  .form-item-radios .form-item-radio {
+    margin: 0; }
 
 @-webkit-keyframes move {
   0% {
@@ -228,3 +237,53 @@ button {
 .message {
   padding: 15px;
   border: 1px solid white; }
+
+.radio-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 18px;
+  position: relative;
+  cursor: pointer; }
+  .radio-label:before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.4);
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    position: relative;
+    top: -3px;
+    float: left;
+    left: -3px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 13px; }
+  .radio-label:after {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    content: '';
+    display: inline-block;
+    width: 14.4px;
+    height: 14.4px;
+    border: 1px solid transparent;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 15px;
+    opacity: 0; }
+  input:checked + .radio-label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
