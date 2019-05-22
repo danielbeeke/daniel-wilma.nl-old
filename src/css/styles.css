@@ -62,7 +62,6 @@ button {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
-  width: 144px;
   text-align: center; }
   button:hover {
     background-color: white;

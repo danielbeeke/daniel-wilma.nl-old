@@ -1,5 +1,5 @@
 import {Router} from './Router.js';
-import './elements/dw-home.js';
+import './elements/dw-profile.js';
 import './elements/dw-login.js';
 import './elements/dw-form.js';
 
@@ -16,7 +16,7 @@ class App extends EventTarget {
 
     app.router = new Router({})
     .add('home', () => {
-      app.element.innerHTML = '<dw-home/>';
+      app.element.innerHTML = '<dw-profile/>';
     })
     .add('login', () => {
       app.element.innerHTML = '<dw-login/>';
@@ -54,18 +54,17 @@ class App extends EventTarget {
   }
 
   /**
-   * Returns the profile of the current user from Mailchimp
-   * @returns {Promise<any | never>}
+   * Fetches the profile of the current user from Mailchimp
    */
   getProfile () {
-    if (this.busy) { return new Promise.resolve() }
-
     let mail = localStorage.getItem('mail');
     let oneTimeLogin = localStorage.getItem('one-time-login');
 
+    if (this.busy || !mail || !oneTimeLogin) { return }
+
     this.busy = true;
 
-    return fetch(`${app.apiUrl}getProfile?mail=${mail}&one-time-login=${oneTimeLogin}`)
+    fetch(`${app.apiUrl}getProfile?mail=${mail}&one-time-login=${oneTimeLogin}`)
       .then(response => response.json())
       .then(response => {
         if (!response.error) {

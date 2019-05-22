@@ -1,4 +1,4 @@
-customElements.define('dw-home', class DwHome extends HTMLElement {
+customElements.define('dw-profile', class DwProfile extends HTMLElement {
 
   constructor () {
     super();
@@ -67,7 +67,6 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
           nodeType: 'button',
           innerHTML: 'Opslaan',
           onclick: (event) => {
-            this.button = event.target;
             this.saveProfile()
           }
         }
@@ -75,6 +74,7 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
 
       this.form.data = app.profile.merge_fields;
       this.appendChild(this.form);
+      this.button = this.form.querySelector('button');
 
       setTimeout(() => {
         this.form.classList.remove('hidden');
@@ -91,7 +91,7 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
    * @param status
    */
   set status (status) {
-    if (status === 'rest' && this.button) {
+    if (status === 'rest') {
       this.button.innerHTML = 'Opslaan';
       this.button.classList.remove('hidden');
       this.button.classList.remove('not-clickable');

@@ -7,6 +7,9 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
   }
 
   connectedCallback () {
+    this.form = document.createElement('form');
+    this.appendChild(this.form);
+
     this.classList.add('form');
 
     this.schema.forEach(field => {
@@ -16,7 +19,11 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
         field = this[prepareMethod](field);
       }
 
-      this.processField(field, this);
+      this.processField(field, this.form);
+    });
+
+    this.form.addEventListener('submit', (event) => {
+      event.preventDefault();
     });
 
     this.updateVisibility();

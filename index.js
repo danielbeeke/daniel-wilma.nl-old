@@ -1,11 +1,11 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require('firebase-functions/lib/index');
+const admin = require('firebase-admin/lib/index');
 const Mailchimp = require('mailchimp-api-v3');
 const md5 = require('md5');
 
 const mailchimp = new Mailchimp(functions.config().mailchimp.key);
 
-const serviceAccount = require('./../serviceAccountKey.json');
+const serviceAccount = require('./serviceAccountKey.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -15,6 +15,8 @@ admin.initializeApp({
 exports.getProfile = functions.https.onRequest((request, response) => {
   const mail = request.query.mail;
   const oneTimeLogin = request.query['one-time-login'];
+
+  console.log(mail)
 
   if (md5(`${mail}+zout-en-spekjes`) === oneTimeLogin) {
     let subscriberHash = md5(mail.toLowerCase());
@@ -27,6 +29,11 @@ exports.getProfile = functions.https.onRequest((request, response) => {
         message: 'Something went wrong',
         stack: error
       });
+    });
+  }
+  else {
+    response.json({
+      message: 'Something went wrong',
     });
   }
 });
