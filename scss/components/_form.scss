@@ -1,3 +1,10 @@
+form {
+  flex: 1 1 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .field-label {
   margin-bottom: 10px;
   color: rgba(black, .5);
@@ -19,6 +26,7 @@ input[type="email"] {
   width: 100%;
   max-width: 100%;
   font-size: 16px;
+  box-shadow: none;
 
   &:focus {
     border: 1px solid white;
@@ -32,8 +40,6 @@ input[type="radio"] {
 }
 
 .form {
-  display: flex;
-  flex-wrap: wrap;
   transition: all .3s ease-in-out;
   padding: 30px;
 

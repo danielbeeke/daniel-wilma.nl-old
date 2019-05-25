@@ -1,18 +1,18 @@
 'use strict';
 
-var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer');
-var sass = require('gulp-sass');
-var sassGlob = require('gulp-sass-glob');
+const gulp = require('gulp');
+const autoPrefixer = require('gulp-autoprefixer');
+const sass = require('gulp-sass');
+const sassGlob = require('gulp-sass-glob');
 
 gulp.task('css', function () {
-    return gulp.src(global.paths.scss)
+    return gulp.src('scss/styles.scss')
     .pipe(sassGlob())
     .pipe(sass())
-    .pipe(autoprefixer({
+    .pipe(autoPrefixer({
         browsers: ['last 20 versions'],
         cascade: false
     }))
-    .pipe(gulp.dest(global.paths.css))
-    .pipe(global.browserSync.stream());
+    .pipe(gulp.dest('public/css'))
+    .pipe(stream());
 });

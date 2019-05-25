@@ -5,6 +5,7 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
 
     this.mail = '';
     this._status = 'rest';
+    this.message = '';
 
     this.form = document.createElement('dw-form');
 
@@ -53,8 +54,9 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
     }
 
     if (status === 'done') {
-      this.button.innerHTML = 'Gelukt!';
+      this.button.innerHTML = this.message;
       this.button.classList.remove('is-progressing');
+      this.mail = '';
     }
 
     if (status === 'reloading') {
@@ -79,12 +81,17 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
     try {
       let response = await fetch(`${app.apiUrl}welcomeMail?mail=${this.mail}`);
 
-      response = response.json();
+      response = await response.json();
+
+      this.message = response.message;
 
       if (!response.error) {
         this.status = 'done';
         setTimeout(() => {
           this.status = 'reloading';
+          setTimeout(() => {
+            this.status = 'rest';
+          }, 1000);
         }, 3000);
       }
       else {

@@ -21,6 +21,7 @@ export class Router {
     this.options = Object.assign(
       {
         debug: false,
+        home: 'error',
         context: window,
         startListening: false
       },
@@ -187,7 +188,7 @@ export class Router {
       log(`Fetching: /${hash}, not a valid route.`);
     }
 
-    this.navigate('home');
+    this.navigate(this.options.home || 'error');
 
     return this;
   }

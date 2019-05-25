@@ -2,11 +2,13 @@ import {Router} from './Router.js';
 import './elements/dw-profile.js';
 import './elements/dw-login.js';
 import './elements/dw-form.js';
+import './elements/dw-photo.js';
+import './elements/dw-menu.js';
 
 class App extends EventTarget {
   constructor () {
     super();
-    this.apiUrl = localStorage.getItem('apiUrl') || 'https://us-central1-trouwen-d591e.cloudfunctions.net/';
+    this.apiUrl = localStorage.getItem('apiUrl') || 'https://api.daniel-wilma.nl/';
     this.busy = false;
     window.app = this;
 
@@ -14,15 +16,23 @@ class App extends EventTarget {
 
     app.element = document.querySelector('#app');
 
-    app.router = new Router({})
-    .add('home', () => {
+    app.router = new Router({
+      home: 'form'
+    })
+    .add('form', () => {
       app.element.innerHTML = '<dw-profile/>';
+    })
+    .add('photo', () => {
+      app.element.innerHTML = '<dw-photo/>';
     })
     .add('login', () => {
       app.element.innerHTML = '<dw-login/>';
     })
     .add('logout', () => {
-      app.router.navigate('home');
+      localStorage.removeItem('mail');
+      localStorage.removeItem('one-time-login');
+      this.dispatchEvent(new CustomEvent('profile.change'));
+      app.router.navigate('login');
     });
 
     this.checkUrlForCredentials();
@@ -33,6 +43,12 @@ class App extends EventTarget {
 
     app.router.listen();
     this.getProfile();
+
+    this.menu = document.querySelector('dw-menu');
+
+    window.addEventListener('hashchange', () => {
+      this.menu.close();
+    });
   }
 
   /**
@@ -70,6 +86,7 @@ class App extends EventTarget {
         if (!response.error) {
           this.profile = response;
           this.dispatchEvent(new CustomEvent('profile.loaded'));
+          this.dispatchEvent(new CustomEvent('profile.change'));
           this.busy = false;
         }
         else {
