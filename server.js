@@ -17,10 +17,10 @@ app.use(function(req, res, next) {
 
 const port = 3005;
 
-app.get('/getProfile', getProfile);
-app.post('/updateProfile', updateProfile);
-app.get('/welcomeMail', welcomeMail);
-app.get('/mail', mailTemplate);
+app.get('/api/getProfile', getProfile);
+app.post('/api/updateProfile', updateProfile);
+app.get('/api/welcomeMail', welcomeMail);
+app.get('/api/mail', mailTemplate);
 
 console.log(`Server is listening on http://localhost:${port}`);
 app.listen(port);

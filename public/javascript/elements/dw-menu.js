@@ -16,6 +16,14 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
       this.innerHTML = this.menuIcon() + this.anonymous();
     }
 
+    this.menuItems = this.querySelectorAll('.menu-link');
+
+    Array.from(this.menuItems).forEach((menuItem) => {
+      menuItem.addEventListener('click', () => {
+        this.close();
+      });
+    });
+
     this.toggle = this.querySelector('.menu-toggle');
 
     this.toggle.addEventListener('click', () => {

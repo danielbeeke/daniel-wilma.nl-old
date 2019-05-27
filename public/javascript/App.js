@@ -45,10 +45,6 @@ class App extends EventTarget {
     this.getProfile();
 
     this.menu = document.querySelector('dw-menu');
-
-    window.addEventListener('hashchange', () => {
-      this.menu.close();
-    });
   }
 
   /**

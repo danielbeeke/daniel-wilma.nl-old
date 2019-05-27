@@ -96,6 +96,30 @@ button {
       overflow: hidden;
       animation: move 2s linear infinite; }
 
+.camera, .view, .sensor, .output {
+  position: fixed;
+  height: 101%;
+  width: 101%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  top: 0;
+  left: 0; }
+
+.view, .sensor, .output {
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: FlipH;
+  filter: FlipH; }
+
+.actions {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
 .form.profile .form-item-VOORNAAM,
 .form.profile .form-item-ACHTERNAAM {
   min-width: 170px;
