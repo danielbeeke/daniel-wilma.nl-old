@@ -2,8 +2,9 @@ import {Router} from './Router.js';
 import './elements/dw-profile.js';
 import './elements/dw-login.js';
 import './elements/dw-form.js';
-import './elements/dw-photo.js';
+import './elements/dw-camera.js';
 import './elements/dw-menu.js';
+import './elements/dw-photos.js';
 
 class App extends EventTarget {
   constructor () {
@@ -22,8 +23,11 @@ class App extends EventTarget {
     .add('form', () => {
       app.element.innerHTML = '<dw-profile/>';
     })
-    .add('photo', () => {
-      app.element.innerHTML = '<dw-photo/>';
+    .add('camera', () => {
+      app.element.innerHTML = '<dw-camera/>';
+    })
+    .add('photos', () => {
+      app.element.innerHTML = '<dw-photos/>';
     })
     .add('login', () => {
       app.element.innerHTML = '<dw-login/>';

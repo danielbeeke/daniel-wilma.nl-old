@@ -1,20 +1,221 @@
-.camera, .view, .sensor, .output {
+dw-camera {
   position: fixed;
-  height: 101%;
-  width: 101%;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   top: 0;
   left: 0;
-}
 
-.view, .sensor, .output {
-  transform: scaleX(-1);
-  filter: FlipH;
-}
+  .view, .sensor, .output {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    transform: scaleX(-1);
+    opacity: 1;
+  }
 
-.actions {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  .form {
+    pointer-events: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transition: none;
+
+    .form-item-submit {
+      button {
+        margin-bottom: 0;
+      }
+    }
+
+    .form-item {
+      align-items: flex-start;
+    }
+    
+    .field-label {
+      border-radius: 4px;
+      background: $color-primary;
+    }
+  }
+
+  .trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: red;
+    border: 5px solid white;
+    left: 50%;
+    margin: 0;
+    bottom: 30px;
+    transform: translateX(-50%);
+    z-index: 30;
+    position: absolute;
+    transition: none;
+    box-shadow: inset 0 5px 3px rgba(black, .3);
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 2px;
+      background-color: black;
+      content: '';
+      display: block;
+      opacity: 0;
+      transition: all .2s ease-in-out;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  .save {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    margin: 0;
+    border-radius: 10px 0 0 10px;
+    border: 0;
+    padding: 15px;
+    fill: white;
+    background-color: $color-success;
+
+    svg {
+      width: 55px;
+    }
+  }
+
+  &[data-status="filming"] {
+    .output {
+      opacity: 0;
+    }
+
+    .view {
+      transition: .3s ease-in-out;
+    }
+
+    .sensor {
+      transition: .3s ease-in-out .3s;
+    }
+
+    .save {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  // Remove button.
+  &[data-status="uploading"],
+  &[data-status="pre-save"],
+  &[data-status="photo-taken"] {
+    .trigger {
+      background-color: white;
+      box-shadow: inset 0 5px 3px rgba(black, 0);
+
+      &:before, &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &[data-status="uploading"],
+  &[data-status="pre-save"] {
+    .save {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .view,
+    .sensor {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .trigger {
+      border-width: 1px;
+      background-color: transparent;
+      transform: translateX(0) translateX(calc(50vw - 100% - 15px));
+
+      &:before,
+      &:after {
+        background-color: white;
+      }
+
+      &:hover {
+        background-color: white;
+
+        &:before,
+        &:after {
+          background-color: black;
+        }
+      }
+    }
+
+    .trigger {
+      transition: all .3s ease-in-out;
+    }
+
+    .output {
+      border: 10px solid white;
+      box-shadow: 0 0 10px rgba(black, .6);
+      transform: scaleX(-1) scale(.6) translateY(-42%) rotate(9deg);
+      transition: all .4s $bezier;
+    }
+
+    .form {
+      opacity: 1;
+      pointer-events: all;
+      transition: all .3s ease-in-out;
+    }
+  }
+
+  &[data-status="uploading"] {
+    .form .form-item-textarea,
+    .trigger {
+      opacity: 0;
+    }
+
+    .form {
+      transition: all .4s ease-in-out;
+    }
+
+    .trigger {
+      transition: none;
+    }
+
+    .output {
+      transform: scaleX(-1) scale(.7) translateY(-20%) rotate(9deg);
+      transition: all .4s $bezier;
+    }
+  }
+
+  &[data-status="uploaded"] {
+    .view,
+    .sensor {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .output {
+      transform: scaleX(-1) scale(.8) translate(-130%, -200px) rotate(0deg);
+      transition: all 1.4s $bezier;
+    }
+
+    .save,
+    .form,
+    .trigger {
+      opacity: 0;
+    }
+  }
 }

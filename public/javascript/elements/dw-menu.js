@@ -67,7 +67,8 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
         <div class="menu">
           <div class="inner">
             <a class="menu-link" href="#profile">Aanmeldformulier</a>
-            <a class="menu-link" href="#photo">Camera</a>
+            <a class="menu-link" href="#camera">Camera</a>
+            <a class="menu-link" href="#photos">Foto's</a>
             <a class="menu-link" href="#logout">Uitloggen</a>
           </div>
         </div>

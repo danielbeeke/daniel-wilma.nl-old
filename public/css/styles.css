@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 html {
   height: 100%;
   font-size: 16px;
@@ -96,29 +95,195 @@ button {
       overflow: hidden;
       animation: move 2s linear infinite; }
 
-.camera, .view, .sensor, .output {
+dw-camera {
   position: fixed;
-  height: 101%;
-  width: 101%;
+  height: 100%;
+  width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   top: 0;
   left: 0; }
-
-.view, .sensor, .output {
-  -webkit-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  transform: scaleX(-1);
-  -webkit-filter: FlipH;
-  filter: FlipH; }
-
-.actions {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%); }
+  dw-camera .view, dw-camera .sensor, dw-camera .output {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+    opacity: 1; }
+  dw-camera .form {
+    pointer-events: none;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none; }
+    dw-camera .form .form-item-submit button {
+      margin-bottom: 0; }
+    dw-camera .form .form-item {
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start; }
+    dw-camera .form .field-label {
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      background: #ff886a; }
+  dw-camera .trigger {
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: red;
+    border: 5px solid white;
+    left: 50%;
+    margin: 0;
+    bottom: 30px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 30;
+    position: absolute;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    -webkit-box-shadow: inset 0 5px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 5px 3px rgba(0, 0, 0, 0.3); }
+    dw-camera .trigger:before, dw-camera .trigger:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 2px;
+      background-color: black;
+      content: '';
+      display: block;
+      opacity: 0;
+      -webkit-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out; }
+    dw-camera .trigger:before {
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg); }
+    dw-camera .trigger:after {
+      -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+      transform: translate(-50%, -50%) rotate(-45deg); }
+  dw-camera .save {
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+    margin: 0;
+    -webkit-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    border: 0;
+    padding: 15px;
+    fill: white;
+    background-color: #437229; }
+    dw-camera .save svg {
+      width: 55px; }
+  dw-camera[data-status="filming"] .output {
+    opacity: 0; }
+  dw-camera[data-status="filming"] .view {
+    -webkit-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out; }
+  dw-camera[data-status="filming"] .sensor {
+    -webkit-transition: .3s ease-in-out .3s;
+    -o-transition: .3s ease-in-out .3s;
+    transition: .3s ease-in-out .3s; }
+  dw-camera[data-status="filming"] .save {
+    opacity: 0;
+    pointer-events: none; }
+  dw-camera[data-status="uploading"] .trigger, dw-camera[data-status="pre-save"] .trigger, dw-camera[data-status="photo-taken"] .trigger {
+    background-color: white;
+    -webkit-box-shadow: inset 0 5px 3px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 5px 3px rgba(0, 0, 0, 0); }
+    dw-camera[data-status="uploading"] .trigger:before, dw-camera[data-status="uploading"] .trigger:after, dw-camera[data-status="pre-save"] .trigger:before, dw-camera[data-status="pre-save"] .trigger:after, dw-camera[data-status="photo-taken"] .trigger:before, dw-camera[data-status="photo-taken"] .trigger:after {
+      opacity: 1; }
+  dw-camera[data-status="uploading"] .save, dw-camera[data-status="pre-save"] .save {
+    opacity: 0;
+    pointer-events: none; }
+  dw-camera[data-status="uploading"] .view,
+  dw-camera[data-status="uploading"] .sensor, dw-camera[data-status="pre-save"] .view,
+  dw-camera[data-status="pre-save"] .sensor {
+    opacity: 0;
+    pointer-events: none; }
+  dw-camera[data-status="uploading"] .trigger, dw-camera[data-status="pre-save"] .trigger {
+    border-width: 1px;
+    background-color: transparent;
+    -webkit-transform: translateX(0) translateX(-webkit-calc(50vw - 100% - 15px));
+    -ms-transform: translateX(0) translateX(calc(50vw - 100% - 15px));
+    transform: translateX(0) translateX(calc(50vw - 100% - 15px)); }
+    dw-camera[data-status="uploading"] .trigger:before, dw-camera[data-status="uploading"] .trigger:after, dw-camera[data-status="pre-save"] .trigger:before, dw-camera[data-status="pre-save"] .trigger:after {
+      background-color: white; }
+    dw-camera[data-status="uploading"] .trigger:hover, dw-camera[data-status="pre-save"] .trigger:hover {
+      background-color: white; }
+      dw-camera[data-status="uploading"] .trigger:hover:before, dw-camera[data-status="uploading"] .trigger:hover:after, dw-camera[data-status="pre-save"] .trigger:hover:before, dw-camera[data-status="pre-save"] .trigger:hover:after {
+        background-color: black; }
+  dw-camera[data-status="uploading"] .trigger, dw-camera[data-status="pre-save"] .trigger {
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out; }
+  dw-camera[data-status="uploading"] .output, dw-camera[data-status="pre-save"] .output {
+    border: 10px solid white;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    -webkit-transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
+    -ms-transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
+    transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
+    -webkit-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    -o-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21); }
+  dw-camera[data-status="uploading"] .form, dw-camera[data-status="pre-save"] .form {
+    opacity: 1;
+    pointer-events: all;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out; }
+  dw-camera[data-status="uploading"] .form .form-item-textarea,
+  dw-camera[data-status="uploading"] .trigger {
+    opacity: 0; }
+  dw-camera[data-status="uploading"] .form {
+    -webkit-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out; }
+  dw-camera[data-status="uploading"] .trigger {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none; }
+  dw-camera[data-status="uploading"] .output {
+    -webkit-transform: scaleX(-1) scale(0.7) translateY(-20%) rotate(9deg);
+    -ms-transform: scaleX(-1) scale(0.7) translateY(-20%) rotate(9deg);
+    transform: scaleX(-1) scale(0.7) translateY(-20%) rotate(9deg);
+    -webkit-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    -o-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21); }
+  dw-camera[data-status="uploaded"] .view,
+  dw-camera[data-status="uploaded"] .sensor {
+    opacity: 0;
+    pointer-events: none; }
+  dw-camera[data-status="uploaded"] .output {
+    -webkit-transform: scaleX(-1) scale(0.8) translate(-130%, -200px) rotate(0deg);
+    -ms-transform: scaleX(-1) scale(0.8) translate(-130%, -200px) rotate(0deg);
+    transform: scaleX(-1) scale(0.8) translate(-130%, -200px) rotate(0deg);
+    -webkit-transition: all 1.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    -o-transition: all 1.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
+    transition: all 1.4s cubic-bezier(0.85, -0.24, 0.33, 1.21); }
+  dw-camera[data-status="uploaded"] .save,
+  dw-camera[data-status="uploaded"] .form,
+  dw-camera[data-status="uploaded"] .trigger {
+    opacity: 0; }
 
 .form.profile .form-item-VOORNAAM,
 .form.profile .form-item-ACHTERNAAM {
@@ -154,19 +319,21 @@ form {
 
 .field-label {
   margin-bottom: 10px;
+  padding: 3px;
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
-  margin-left: 2px;
+  margin-left: -2px;
   letter-spacing: 3px;
   text-transform: uppercase; }
 
+textarea,
 input[type="number"],
 input[type="text"],
 input[type="email"] {
   padding: 15px;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   border: 1px solid transparent;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #ffd9d0;
   -webkit-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
@@ -177,6 +344,7 @@ input[type="email"] {
   font-size: 16px;
   -webkit-box-shadow: none;
   box-shadow: none; }
+  textarea:focus,
   input[type="number"]:focus,
   input[type="text"]:focus,
   input[type="email"]:focus {
@@ -503,6 +671,9 @@ input[type="radio"] {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); }
+
+iframe.svg {
+  display: none; }
 
 dw-form {
   -webkit-transition: all .3s ease-in-out;

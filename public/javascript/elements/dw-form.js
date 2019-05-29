@@ -68,7 +68,7 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
         }
       }
 
-      if (mainElement.nodeName.toLowerCase() === 'input') {
+      if (['input', 'textarea'].includes(mainElement.nodeName.toLowerCase())) {
         let updateValue = () => {
           index(this.data, field.name, mainElement.value);
           this.updateVisibility();
