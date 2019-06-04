@@ -147,7 +147,7 @@ customElements.define('dw-profile', class DwProfile extends HTMLElement {
         body: JSON.stringify({ merge_fields: app.profile.merge_fields })
       });
 
-      response = response.json();
+      response = await response.json();
 
       if (!response.error) {
         this.status = 'done';

@@ -11,13 +11,5 @@
     "proxy-middleware": "^0.15.0",
     "require-dir": "^0.3.2",
     "url": "^0.11.0"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^2.6.1",
-    "express": "^4.17.0",
-    "mailchimp-api-v3": "^1.13.0",
-    "md5": "^2.2.1",
-    "nodemailer": "^6.1.1"
   }
 }

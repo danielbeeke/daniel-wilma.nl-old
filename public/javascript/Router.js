@@ -23,7 +23,8 @@ export class Router {
         debug: false,
         home: 'error',
         context: window,
-        startListening: false
+        startListening: true,
+        routes: false
       },
       options
     );
@@ -32,8 +33,25 @@ export class Router {
     this.routes = [];
     this.onHashChange = this.check.bind(this);
 
+    if (this.options.routes) {
+      this.addRoutes(this.options.routes);
+    }
+
     if (this.options.startListening) {
       this.listen();
+    }
+  }
+
+  addRoutes (routes) {
+    for (let [path, route] of Object.entries(routes)) {
+      if (typeof route === 'string') {
+        this.add(path, () => {
+          app.element.innerHTML = `<dw-${route}/>`;
+        })
+      }
+      else {
+        this.add(path, route)
+      }
     }
   }
 
@@ -103,6 +121,11 @@ export class Router {
         match.shift();
         route.handler.apply({}, match);
         hasMatch = true;
+        window.dispatchEvent(new CustomEvent('routechange', {
+          detail: {
+            route: route
+          }
+        }));
 
         if (this.options.debug) {
           log(`Fetching: /${hash}`);

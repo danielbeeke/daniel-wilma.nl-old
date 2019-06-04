@@ -85,29 +85,25 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
     this._status = status;
     this.dataset.status = status;
 
-    if (status === 'filming') {
-    }
-
-    if (status === 'photo-taken') {
-    }
-
     if (status === 'uploading') {
       this.button.innerText = 'Even bezig...';
       this.button.classList.add('is-progressing');
       this.button.classList.add('not-clickable');
-      this.message = '';
     }
 
     if (status === 'uploaded') {
       this.button.innerText = 'Insturen';
       this.button.classList.remove('is-progressing');
       this.button.classList.remove('not-clickable');
+      this.message = '';
       this.createForm();
     }
   }
 
   removePhoto () {
     this.output.src = '';
+    this.message = '';
+    this.createForm();
     this.status = 'filming';
   }
 
@@ -135,8 +131,32 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
       });
   }
 
-  uploadPhoto () {
+  async uploadPhoto () {
     this.status = 'uploading';
+
+    let imageString = this.output.src;
+    let mail = localStorage.getItem('mail');
+    let oneTimeLogin = localStorage.getItem('one-time-login');
+
+    try {
+      let response = await fetch(`${app.apiUrl}uploadPhoto?mail=${mail}&one-time-login=${oneTimeLogin}`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ photo: imageString, message: this.message })
+      });
+
+      response = await response.json();
+
+      console.log(response)
+    }
+    catch (error) {
+      console.log(error)
+    }
+
+
 
     setTimeout(() => {
       this.status = 'uploaded';

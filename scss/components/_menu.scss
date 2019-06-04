@@ -59,6 +59,7 @@
     transform: translateX(0);
   }
 
+  &.active,
   &:hover {
     color: rgba(white, 1);
     transform: translateX(-5px);

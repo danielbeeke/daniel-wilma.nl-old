@@ -1,19 +1,38 @@
 customElements.define('dw-menu', class DwMenu extends HTMLElement {
 
   connectedCallback () {
+    this.innerHTML = this.menuIcon() + '<div class="menu"></div>';
+    this.toggle = this.querySelector('.menu-toggle');
+
+    this.toggle.addEventListener('click', () => {
+      document.body.classList.toggle('has-menu-expanded');
+    });
+
+    this.wrapper = this.querySelector('.menu');
     this.fillMenu();
 
-    app.addEventListener('profile.change', () => {
+    window.addEventListener('routechange', (event) => {
       this.fillMenu();
+
+      let path = event.detail.route.route.source;
+      let previouslyActive = this.querySelector('.menu-link.active');
+      if (previouslyActive) {
+        previouslyActive.classList.remove('active');
+      }
+
+      let newActive = this.querySelector(`.menu-link[href="#${path}"]`);
+      if (newActive) {
+        newActive.classList.add('active');
+      }
     });
   }
 
   fillMenu () {
     if (localStorage.getItem('mail') && localStorage.getItem('one-time-login')) {
-      this.innerHTML = this.menuIcon() + this.authenticated();
+      this.wrapper.innerHTML = this.authenticated();
     }
     else {
-      this.innerHTML = this.menuIcon() + this.anonymous();
+      this.wrapper.innerHTML = this.anonymous();
     }
 
     this.menuItems = this.querySelectorAll('.menu-link');
@@ -24,11 +43,6 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
       });
     });
 
-    this.toggle = this.querySelector('.menu-toggle');
-
-    this.toggle.addEventListener('click', () => {
-      document.body.classList.toggle('has-menu-expanded');
-    });
   }
 
   close () {
@@ -52,26 +66,22 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
   }
 
   anonymous () {
-    return `
-        <div class="menu">
-          <div class="inner">
-            <a class="menu-link" href="#login">Inloggen</a>
-            <a class="menu-link" href="#information">Informatie</a>
-          </div>  
-        </div>
+    return `        
+      <div class="inner">
+        <a class="menu-link" href="#login">Inloggen</a>
+        <a class="menu-link" href="#information">Informatie</a>
+      </div>  
     `;
   }
 
   authenticated () {
     return `
-        <div class="menu">
-          <div class="inner">
-            <a class="menu-link" href="#profile">Aanmeldformulier</a>
-            <a class="menu-link" href="#camera">Camera</a>
-            <a class="menu-link" href="#photos">Foto's</a>
-            <a class="menu-link" href="#logout">Uitloggen</a>
-          </div>
-        </div>
+      <div class="inner">
+        <a class="menu-link" href="#profile">Aanmeldformulier</a>
+        <a class="menu-link" href="#camera">Camera</a>
+        <a class="menu-link" href="#photos">Foto's</a>
+        <a class="menu-link" href="#logout">Uitloggen</a>
+      </div>
     `;
   }
 

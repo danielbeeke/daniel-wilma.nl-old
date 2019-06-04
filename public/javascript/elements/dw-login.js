@@ -87,12 +87,7 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
 
       if (!response.error) {
         this.status = 'done';
-        setTimeout(() => {
-          this.status = 'reloading';
-          setTimeout(() => {
-            this.status = 'rest';
-          }, 1000);
-        }, 3000);
+        app.router.navigate('login-process');
       }
       else {
         console.log('Oops something went wrong while sending a welcome mail.', response);

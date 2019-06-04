@@ -120,10 +120,15 @@ dw-camera {
     opacity: 0;
     width: 100%;
     position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     bottom: 0;
     -webkit-transition: none;
     -o-transition: none;
-    transition: none; }
+    transition: none;
+    max-width: 600px; }
     dw-camera .form .form-item-submit button {
       margin-bottom: 0; }
     dw-camera .form .form-item {
@@ -189,22 +194,40 @@ dw-camera {
     border: 0;
     padding: 15px;
     fill: white;
-    background-color: #437229; }
+    background-color: #437229;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0); }
+    @media only screen and (min-width: 600px) {
+      dw-camera .save {
+        right: -webkit-calc(50% - 300px);
+        right: calc(50% - 300px);
+        -webkit-border-radius: 10px 10px 0 0;
+        border-radius: 10px 10px 0 0;
+        bottom: 0;
+        padding-bottom: 30px; } }
     dw-camera .save svg {
       width: 55px; }
   dw-camera[data-status="filming"] .output {
     opacity: 0; }
-  dw-camera[data-status="filming"] .view {
+  dw-camera[data-status="filming"] .trigger {
     -webkit-transition: .3s ease-in-out;
     -o-transition: .3s ease-in-out;
     transition: .3s ease-in-out; }
   dw-camera[data-status="filming"] .sensor {
+    -webkit-transition: .3s ease-in-out .6s;
+    -o-transition: .3s ease-in-out .6s;
+    transition: .3s ease-in-out .6s; }
+  dw-camera[data-status="filming"] .save {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%); }
+  dw-camera[data-status="filming"] .view {
     -webkit-transition: .3s ease-in-out .3s;
     -o-transition: .3s ease-in-out .3s;
     transition: .3s ease-in-out .3s; }
-  dw-camera[data-status="filming"] .save {
-    opacity: 0;
-    pointer-events: none; }
   dw-camera[data-status="uploading"] .trigger, dw-camera[data-status="pre-save"] .trigger, dw-camera[data-status="photo-taken"] .trigger {
     background-color: white;
     -webkit-box-shadow: inset 0 5px 3px rgba(0, 0, 0, 0);
@@ -225,6 +248,11 @@ dw-camera {
     -webkit-transform: translateX(0) translateX(-webkit-calc(50vw - 100% - 15px));
     -ms-transform: translateX(0) translateX(calc(50vw - 100% - 15px));
     transform: translateX(0) translateX(calc(50vw - 100% - 15px)); }
+    @media only screen and (min-width: 600px) {
+      dw-camera[data-status="uploading"] .trigger, dw-camera[data-status="pre-save"] .trigger {
+        -webkit-transform: translateX(0) translateX(-webkit-calc(300px - 100% - 20px));
+        -ms-transform: translateX(0) translateX(calc(300px - 100% - 20px));
+        transform: translateX(0) translateX(calc(300px - 100% - 20px)); } }
     dw-camera[data-status="uploading"] .trigger:before, dw-camera[data-status="uploading"] .trigger:after, dw-camera[data-status="pre-save"] .trigger:before, dw-camera[data-status="pre-save"] .trigger:after {
       background-color: white; }
     dw-camera[data-status="uploading"] .trigger:hover, dw-camera[data-status="pre-save"] .trigger:hover {
@@ -239,9 +267,9 @@ dw-camera {
     border: 10px solid white;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    -webkit-transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
-    -ms-transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
-    transform: scaleX(-1) scale(0.6) translateY(-42%) rotate(9deg);
+    -webkit-transform: scaleX(-1) scale(0.5) translateY(-52%) rotate(9deg);
+    -ms-transform: scaleX(-1) scale(0.5) translateY(-52%) rotate(9deg);
+    transform: scaleX(-1) scale(0.5) translateY(-52%) rotate(9deg);
     -webkit-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
     -o-transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21);
     transition: all 0.4s cubic-bezier(0.85, -0.24, 0.33, 1.21); }
@@ -602,12 +630,12 @@ input[type="radio"] {
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0); }
-  .menu-link:hover {
+  .menu-link.active, .menu-link:hover {
     color: white;
     -webkit-transform: translateX(-5px);
     -ms-transform: translateX(-5px);
     transform: translateX(-5px); }
-    .menu-link:hover:after {
+    .menu-link.active:after, .menu-link:hover:after {
       width: 100%;
       -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
@@ -681,6 +709,12 @@ dw-form {
   transition: all .3s ease-in-out; }
 
 dw-home {
+  max-width: 700px;
+  margin: auto;
+  width: 100%;
+  padding: 0 20px; }
+
+dw-login-process {
   max-width: 700px;
   margin: auto;
   width: 100%;

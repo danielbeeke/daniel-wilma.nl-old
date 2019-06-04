@@ -35,4 +35,4 @@ gulp.task('browsersync', () => {
   gulp.watch('scss/**/*', { usePolling: true }, gulp.series('css'));
 });
 
-gulp.task('serve', gulp.series('nodemon', 'css', 'browsersync'));
+gulp.task('serve', gulp.series('css', 'browsersync'));

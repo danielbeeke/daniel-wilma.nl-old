@@ -22,8 +22,11 @@ dw-camera {
     opacity: 0;
     width: 100%;
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 0;
     transition: none;
+    max-width: 600px;
 
     .form-item-submit {
       button {
@@ -90,6 +93,14 @@ dw-camera {
     padding: 15px;
     fill: white;
     background-color: $color-success;
+    transform: translateY(0);
+
+    @media only screen and (min-width: 600px) {
+      right: calc(50% - 300px);
+      border-radius: 10px 10px 0 0;
+      bottom: 0;
+      padding-bottom: 30px;
+    }
 
     svg {
       width: 55px;
@@ -101,17 +112,22 @@ dw-camera {
       opacity: 0;
     }
 
-    .view {
+    .trigger {
       transition: .3s ease-in-out;
     }
 
     .sensor {
-      transition: .3s ease-in-out .3s;
+      transition: .3s ease-in-out .6s;
     }
 
     .save {
       opacity: 0;
       pointer-events: none;
+      transform: translateY(100%);
+    }
+
+    .view {
+      transition: .3s ease-in-out .3s;
     }
   }
 
@@ -147,6 +163,10 @@ dw-camera {
       background-color: transparent;
       transform: translateX(0) translateX(calc(50vw - 100% - 15px));
 
+      @media only screen and (min-width: 600px) {
+        transform: translateX(0) translateX(calc(300px - 100% - 20px));
+      }
+
       &:before,
       &:after {
         background-color: white;
@@ -169,7 +189,7 @@ dw-camera {
     .output {
       border: 10px solid white;
       box-shadow: 0 0 10px rgba(black, .6);
-      transform: scaleX(-1) scale(.6) translateY(-42%) rotate(9deg);
+      transform: scaleX(-1) scale(.5) translateY(-52%) rotate(9deg);
       transition: all .4s $bezier;
     }
 
