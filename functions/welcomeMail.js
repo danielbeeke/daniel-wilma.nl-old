@@ -5,7 +5,7 @@ import AWS from 'aws-sdk';
 AWS.config.update({region: 'eu-west-1'});
 
 export async function welcomeMail (event) {
-  if (!'mail' in event.queryStringParameters) {
+  if (!event.queryStringParameters['mail']) {
     return Response(400, 'Please provide the query argument mail');
   }
 
@@ -39,11 +39,10 @@ export async function welcomeMail (event) {
   };
 
   return new AWS.SES().sendEmail(params).promise().then(
-    function(data) {
-      return new Response(200, 'Gelukt!');
-    }).catch(
-    function(error) {
-      return new Response(400, error)
-    });
-
+  function(data) {
+    return new Response(200, 'Gelukt!');
+  }).catch(
+  function(error) {
+    return new Response(400, error)
+  });
 };

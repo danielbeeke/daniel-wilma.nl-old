@@ -12,15 +12,13 @@ process.setMaxListeners(0);
 
 gulp.task('browsersync', () => {
 
-  const proxyOptions = url.parse('http://localhost:3005/api');
-  proxyOptions.route = '/api';
-
   browserSync.init({
+    port: 4000,
     server: {
       baseDir: 'public',
-      middleware: [proxy(proxyOptions), function(req, res, next) {
-        var fileName = url.parse(req.url).pathname;
-        var fileExists = fs.existsSync('public/' + fileName);
+      middleware: [function(req, res, next) {
+        let fileName = url.parse(req.url).pathname;
+        let fileExists = fs.existsSync('public/' + fileName);
         if (!fileExists && fileName.indexOf("browser-sync-client") < 0 || fileName === '/') {
           req.url = '/404.html';
         }

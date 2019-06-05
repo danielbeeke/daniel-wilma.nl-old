@@ -1,16 +1,17 @@
 import {Response, mailchimpListUrl} from './helpers.js';
 import {checkHash} from "./helpers";
+import fetch from 'node-fetch';
 
 export async function updateProfile (event) {
-  if (!'one-time-login' in event.queryStringParameters) {
+  if (!event.queryStringParameters['one-time-login']) {
     return Response(400, 'Please provide the query argument one-time-login');
   }
 
-  if (!'mail' in event.queryStringParameters) {
+  if (!event.queryStringParameters['mail']) {
     return Response(400, 'Please provide the query argument mail');
   }
 
-  if (!'body' in event) {
+  if (!event['body']) {
     return Response(400, 'Please do a POST request with data');
   }
 

@@ -1,4 +1,5 @@
-import md5 from "md5";
+import md5 from 'md5';
+import fetch from 'node-fetch';
 
 export const mailchimpListUrl = 'https://us20.api.mailchimp.com/3.0/lists/d07c3eb514';
 

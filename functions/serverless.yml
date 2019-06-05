@@ -1,6 +1,6 @@
 service: trouwen
-tenant: danielbeeke
-app: trouwen
+# tenant: danielbeeke
+# app: trouwen
 
 provider:
   name: aws
@@ -45,6 +45,7 @@ functions:
 
 plugins:
   - serverless-webpack
+  - serverless-offline
 
 custom:
   webpack:

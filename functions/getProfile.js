@@ -2,11 +2,11 @@ import {Response, getMailchimpProfileByMail} from './helpers.js';
 import {checkHash} from "./helpers";
 
 export async function getProfile (event) {
-  if (!'one-time-login' in event.queryStringParameters) {
+  if (!event.queryStringParameters['one-time-login']) {
     return Response(400, 'Please provide the query argument one-time-login');
   }
 
-  if (!'mail' in event.queryStringParameters) {
+  if (!event.queryStringParameters['mail']) {
     return Response(400, 'Please provide the query argument mail');
   }
 
