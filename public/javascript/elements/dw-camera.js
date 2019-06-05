@@ -111,7 +111,7 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
     this.sensor.width = this.view.videoWidth;
     this.sensor.height = this.view.videoHeight;
     this.sensor.getContext('2d').drawImage(this.view, 0, 0);
-    this.output.src = this.sensor.toDataURL('image/webp');
+    this.output.src = this.sensor.toDataURL('image/jpeg');
     this.status = 'photo-taken';
   }
 
@@ -149,21 +149,15 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
       });
 
       response = await response.json();
-
-      console.log(response)
     }
     catch (error) {
       console.log(error)
     }
 
-
+    this.status = 'uploaded';
 
     setTimeout(() => {
-      this.status = 'uploaded';
-
-      setTimeout(() => {
-        this.status = 'filming';
-      }, 2000)
-    }, 3000);
+      this.status = 'filming';
+    }, 1000);
   }
 });
