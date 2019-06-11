@@ -1,17 +1,11 @@
-customElements.define('dw-form', class DwForm extends HTMLElement {
+customElements.define('dw-form', class DwForm extends HTMLFormElement {
 
   constructor() {
     super();
-
     this.visibilityData = {};
   }
 
   connectedCallback () {
-    this.form = document.createElement('form');
-    this.appendChild(this.form);
-
-    this.classList.add('form');
-
     this.schema.forEach(field => {
       let type = field.nodeType || field.type;
       let prepareMethod = 'prepare' + type.capitalize();
@@ -19,10 +13,10 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
         field = this[prepareMethod](field);
       }
 
-      this.processField(field, this.form);
+      this.processField(field, this);
     });
 
-    this.form.addEventListener('submit', (event) => {
+    this.addEventListener('submit', (event) => {
       event.preventDefault();
     });
 
@@ -141,7 +135,7 @@ customElements.define('dw-form', class DwForm extends HTMLElement {
     };
   }
 
-});
+},{extends: 'form'});
 
 String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);

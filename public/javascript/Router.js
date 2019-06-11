@@ -47,6 +47,7 @@ export class Router {
       if (typeof route === 'string') {
         this.add(path, () => {
           app.element.innerHTML = `<dw-${route}/>`;
+          app.element.children[0].classList.add('route-view');
         })
       }
       else {

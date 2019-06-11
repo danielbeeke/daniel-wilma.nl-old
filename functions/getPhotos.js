@@ -46,5 +46,5 @@ export async function getPhotos (event) {
     }
   }
 
-  return Response(200, listing);
+  return Response(200, listing.reverse());
 };

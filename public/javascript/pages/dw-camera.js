@@ -43,7 +43,6 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
       <canvas class="sensor"></canvas>
       <video class="view" autoplay playsinline></video>
       <img src="//:0" alt="" class="output">
-      
       <button class="trigger"></button>
       <button class="save"><iframe class="svg" src="/images/send.svg" onload="svger(this)"></iframe></button>        
     `;

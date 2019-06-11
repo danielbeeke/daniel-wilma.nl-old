@@ -1,12 +1,14 @@
 import {Router} from './Router.js';
-import './elements/dw-profile.js';
-import './elements/dw-login.js';
-import './elements/dw-login-process.js';
+
+import './pages/dw-profile.js';
+import './pages/dw-login.js';
+import './pages/dw-camera.js';
+import './pages/dw-photos.js';
+import './pages/dw-program.js';
+import './pages/dw-locations.js';
+
 import './elements/dw-form.js';
-import './elements/dw-camera.js';
 import './elements/dw-menu.js';
-import './elements/dw-photos.js';
-import './elements/dw-anon-information.js';
 
 class App extends EventTarget {
   constructor () {
@@ -24,10 +26,11 @@ class App extends EventTarget {
       home: 'profile',
       routes: {
         'profile': 'profile',
-        'information': 'anon-information',
         'camera': 'camera',
         'photos': 'photos',
         'login': 'login',
+        'program': 'program',
+        'locations': 'locations',
         'login-process': 'login-process',
         'logout': () => {
           localStorage.removeItem('mail');

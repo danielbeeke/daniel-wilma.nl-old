@@ -17,7 +17,7 @@ dw-camera {
     opacity: 1;
   }
 
-  .form {
+  form {
     pointer-events: none;
     opacity: 0;
     width: 100%;
@@ -37,7 +37,7 @@ dw-camera {
     .form-item {
       align-items: flex-start;
     }
-    
+
     .field-label {
       border-radius: 4px;
       background: $color-primary;
@@ -193,7 +193,7 @@ dw-camera {
       transition: all .4s $bezier;
     }
 
-    .form {
+    form {
       opacity: 1;
       pointer-events: all;
       transition: all .3s ease-in-out;
@@ -206,7 +206,7 @@ dw-camera {
       opacity: 0;
     }
 
-    .form {
+    form {
       transition: all .4s ease-in-out;
     }
 
@@ -233,7 +233,7 @@ dw-camera {
     }
 
     .save,
-    .form,
+    form,
     .trigger {
       opacity: 0;
     }

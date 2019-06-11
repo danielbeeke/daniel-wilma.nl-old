@@ -1,0 +1,9 @@
+.page-title {
+  font-size: 50px;
+  color: $color-secondary;
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all $speed $bezier;
+}

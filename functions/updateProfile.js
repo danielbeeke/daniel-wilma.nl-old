@@ -1,6 +1,7 @@
 import {Response, mailchimpListUrl} from './helpers.js';
 import {checkHash} from "./helpers";
 import fetch from 'node-fetch';
+import md5 from 'md5';
 
 export async function updateProfile (event) {
   if (!event.queryStringParameters['one-time-login']) {

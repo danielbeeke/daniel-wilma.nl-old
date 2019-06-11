@@ -1,18 +1,16 @@
 form {
-  flex: 1 1 100%;
-  width: 100%;
+  flex: 1 1 calc(100% + 40px);
+  width: calc(100% + 40px);
   display: flex;
   flex-wrap: wrap;
-}
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  margin: 0 -20px;
 
-.field-label {
-  margin-bottom: 10px;
-  padding: 3px;
-  color: rgba(black, .5);
-  font-size: 14px;
-  margin-left: -2px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+  &.hidden {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
 }
 
 textarea,
@@ -41,17 +39,6 @@ input[type="radio"] {
   display: none;
 }
 
-.form {
-  transition: all .3s ease-in-out;
-  padding: 30px;
-
-  &.hidden {
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-  }
-}
-
 .form-item {
   display: flex;
   flex: 1 1 100%;
@@ -74,19 +61,21 @@ input[type="radio"] {
   }
 }
 
+.field-label {
+  margin-bottom: 10px;
+  padding: 3px;
+  color: rgba(black, .5);
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: -2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 .form-item-radios {
   margin-bottom: 30px;
 
   .form-item-radio {
     margin: 0;
-  }
-}
-
-@keyframes move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
   }
 }

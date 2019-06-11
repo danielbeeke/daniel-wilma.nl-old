@@ -1,15 +1,22 @@
 customElements.define('dw-menu', class DwMenu extends HTMLElement {
 
   connectedCallback () {
-    this.innerHTML = this.menuIcon() + '<div class="menu"></div>';
+    this.innerHTML = this.menuIcon() + '<div class="menu"><div class="menu-wrapper"><h1 class="page-title">Menu</h1><div class="inner"></div></div></div>';
     this.toggle = this.querySelector('.menu-toggle');
 
     this.toggle.addEventListener('click', () => {
       document.body.classList.toggle('has-menu-expanded');
     });
 
-    this.wrapper = this.querySelector('.menu');
+    this.wrapper = this.querySelector('.menu .inner');
     this.fillMenu();
+
+
+    document.addEventListener('keyup', (event) => {
+      if (document.body.classList.contains('has-menu-expanded') && event.key === 'Escape') {
+        document.body.classList.remove('has-menu-expanded');
+      }
+    });
 
     window.addEventListener('routechange', (event) => {
       this.fillMenu();
@@ -67,21 +74,21 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
 
   anonymous () {
     return `        
-      <div class="inner">
-        <a class="menu-link" href="#login">Inloggen</a>
-        <a class="menu-link" href="#information">Informatie</a>
-      </div>  
+      <a class="menu-link" href="#login">Inloggen</a>
+      <a class="menu-link" href="#locations">Locaties</a>
+      <a class="menu-link" href="#information">Informatie</a>
     `;
   }
 
   authenticated () {
     return `
-      <div class="inner">
-        <a class="menu-link" href="#profile">Aanmeldformulier</a>
-        <a class="menu-link" href="#camera">Camera</a>
-        <a class="menu-link" href="#photos">Foto's</a>
-        <a class="menu-link" href="#logout">Uitloggen</a>
-      </div>
+      <a class="menu-link" href="#program">Programma</a>
+      <a class="menu-link" href="#locations">Locaties</a>
+      <a class="menu-link" href="#profile">Aanmeldformulier</a>
+      <span>
+        <a class="menu-link" href="#camera">Camera</a><span class="separator"> / </span><a class="menu-link" href="#photos">Foto's</a>
+      </span>
+      <a class="menu-link" href="#logout">Uitloggen</a>
     `;
   }
 
