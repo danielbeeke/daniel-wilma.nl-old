@@ -1,38 +1,44 @@
 import {Router} from './Router.js';
-import './elements/dw-profile.js';
-import './elements/dw-login.js';
+
+import './pages/dw-profile.js';
+import './pages/dw-login.js';
+import './pages/dw-camera.js';
+import './pages/dw-photos.js';
+import './pages/dw-program.js';
+import './pages/dw-locations.js';
+
 import './elements/dw-form.js';
-import './elements/dw-photo.js';
 import './elements/dw-menu.js';
 
 class App extends EventTarget {
   constructor () {
     super();
-    this.apiUrl = localStorage.getItem('apiUrl') || 'https://api.daniel-wilma.nl/';
+    this.apiUrl = localStorage.getItem('apiUrl') || 'https://4403980yfa.execute-api.eu-west-1.amazonaws.com/prod/';
     this.busy = false;
     window.app = this;
 
-    app.user = {};
+    app.element = document.querySelector('.app');
 
-    app.element = document.querySelector('#app');
+    this.menu = document.createElement('dw-menu');
+    this.element.before(this.menu);
 
     app.router = new Router({
-      home: 'form'
-    })
-    .add('form', () => {
-      app.element.innerHTML = '<dw-profile/>';
-    })
-    .add('photo', () => {
-      app.element.innerHTML = '<dw-photo/>';
-    })
-    .add('login', () => {
-      app.element.innerHTML = '<dw-login/>';
-    })
-    .add('logout', () => {
-      localStorage.removeItem('mail');
-      localStorage.removeItem('one-time-login');
-      this.dispatchEvent(new CustomEvent('profile.change'));
-      app.router.navigate('login');
+      home: 'profile',
+      routes: {
+        'profile': 'profile',
+        'camera': 'camera',
+        'photos': 'photos',
+        'login': 'login',
+        'program': 'program',
+        'locations': 'locations',
+        'login-process': 'login-process',
+        'logout': () => {
+          localStorage.removeItem('mail');
+          localStorage.removeItem('one-time-login');
+          this.dispatchEvent(new CustomEvent('profile.change'));
+          app.router.navigate('login');
+        }
+      }
     });
 
     this.checkUrlForCredentials();
@@ -41,14 +47,7 @@ class App extends EventTarget {
       app.router.navigate('login');
     }
 
-    app.router.listen();
     this.getProfile();
-
-    this.menu = document.querySelector('dw-menu');
-
-    window.addEventListener('hashchange', () => {
-      this.menu.close();
-    });
   }
 
   /**
@@ -65,7 +64,7 @@ class App extends EventTarget {
       }
 
       history.pushState({}, '', '/');
-      app.router.navigate('home');
+      app.router.navigate('form');
     }
   }
 
@@ -76,7 +75,10 @@ class App extends EventTarget {
     let mail = localStorage.getItem('mail');
     let oneTimeLogin = localStorage.getItem('one-time-login');
 
-    if (this.busy || !mail || !oneTimeLogin) { return }
+    if (this.busy || !mail || !oneTimeLogin) {
+      this.dispatchEvent(new CustomEvent('profile.change'));
+      return;
+    }
 
     this.busy = true;
 

@@ -1,26 +1,26 @@
 form {
-  flex: 1 1 100%;
-  width: 100%;
+  flex: 1 1 calc(100% + 40px);
+  width: calc(100% + 40px);
   display: flex;
   flex-wrap: wrap;
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  margin: 0 -20px;
+
+  &.hidden {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+  }
 }
 
-.field-label {
-  margin-bottom: 10px;
-  color: rgba(black, .5);
-  font-size: 14px;
-  margin-left: 2px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
+textarea,
 input[type="number"],
 input[type="text"],
 input[type="email"] {
   padding: 15px;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
   border: 1px solid transparent;
-  background-color: rgba(white, .4);
+  background-color: lighten($color-primary, 20);
   transition: all .3s ease-in-out;
   border-radius: 3px;
   width: 100%;
@@ -37,17 +37,6 @@ input[type="email"] {
 input[type="checkbox"],
 input[type="radio"] {
   display: none;
-}
-
-.form {
-  transition: all .3s ease-in-out;
-  padding: 30px;
-
-  &.hidden {
-    padding: 0;
-    margin: 0;
-    opacity: 0;
-  }
 }
 
 .form-item {
@@ -72,19 +61,21 @@ input[type="radio"] {
   }
 }
 
+.field-label {
+  margin-bottom: 10px;
+  padding: 3px;
+  color: rgba(black, .5);
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: -2px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 .form-item-radios {
   margin-bottom: 30px;
 
   .form-item-radio {
     margin: 0;
-  }
-}
-
-@keyframes move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
   }
 }

@@ -15,7 +15,8 @@ customElements.define('dw-profile', class DwProfile extends HTMLElement {
   }
 
   createForm () {
-    this.form = document.createElement('dw-form');
+    this.innerHTML = `<h1 class="page-title">Aanmeldformulier</h1>`;
+    this.form = document.createElement('form', { is: 'dw-form' });
     this.form.classList.add('hidden');
     this.form.classList.add('profile');
 
@@ -147,7 +148,7 @@ customElements.define('dw-profile', class DwProfile extends HTMLElement {
         body: JSON.stringify({ merge_fields: app.profile.merge_fields })
       });
 
-      response = response.json();
+      response = await response.json();
 
       if (!response.error) {
         this.status = 'done';

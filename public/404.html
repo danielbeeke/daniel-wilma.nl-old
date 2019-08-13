@@ -7,13 +7,17 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
   <link href="css/styles.css" rel="stylesheet" />
 
+  <script>
+    function svger (svg) {
+      svg.before((svg.contentDocument.body || svg.contentDocument).children[0]);svg.remove()
+    }
+  </script>
+
 </head>
 
 <body>
 
-  <dw-menu></dw-menu>
-
-  <div class="app" id="app">
+  <div class="app">
   </div>
 
   <script type="module" src="javascript/App.js"></script>

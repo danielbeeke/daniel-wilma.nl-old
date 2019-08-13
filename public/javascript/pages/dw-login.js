@@ -7,7 +7,7 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
     this._status = 'rest';
     this.message = '';
 
-    this.form = document.createElement('dw-form');
+    this.form = document.createElement('form', { is: 'dw-form' });
 
     this.form.schema = [
       {
@@ -87,12 +87,6 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
 
       if (!response.error) {
         this.status = 'done';
-        setTimeout(() => {
-          this.status = 'reloading';
-          setTimeout(() => {
-            this.status = 'rest';
-          }, 1000);
-        }, 3000);
       }
       else {
         console.log('Oops something went wrong while sending a welcome mail.', response);

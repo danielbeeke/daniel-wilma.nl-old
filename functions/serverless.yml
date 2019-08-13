@@ -1,0 +1,57 @@
+service: trouwen
+# tenant: danielbeeke
+# app: trouwen
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: eu-west-1
+  environment:
+    mailchimp: ${file(../settings.json):mailchimp}
+  role: arn:aws:iam::622681756486:role/service-role/developer
+
+functions:
+  getProfile:
+    handler: getProfile.getProfile
+    events:
+      - http:
+          path: getProfile
+          method: get
+  updateProfile:
+    handler: updateProfile.updateProfile
+    events:
+      - http:
+          path: updateProfile
+          method: post
+  uploadPhoto:
+    handler: uploadPhoto.uploadPhoto
+    events:
+      - http:
+          path: uploadPhoto
+          method: post
+  welcomeMail:
+    handler: welcomeMail.welcomeMail
+    events:
+      - http:
+          path: welcomeMail
+          method: get
+  getPhotos:
+    handler: getPhotos.getPhotos
+    events:
+      - http:
+          path: getPhotos
+          method: get
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    includeModules: true
+
+package:
+  individually: true
+
+cfnRole: arn:aws:iam::622681756486:role/service-role/developer
