@@ -1,5 +1,8 @@
 import {Router} from './Router.js';
 
+import './Helpers.js';
+
+import './pages/dw-home.js';
 import './pages/dw-profile.js';
 import './pages/dw-login.js';
 import './pages/dw-camera.js';
@@ -19,20 +22,17 @@ class App extends EventTarget {
 
     app.element = document.querySelector('.app');
 
-    this.menu = document.createElement('dw-menu');
-    this.element.before(this.menu);
-
     app.router = new Router({
-      home: 'profile',
+      home: 'welkom',
       routes: {
-        'profile': 'profile',
-        'camera': 'camera',
-        'photos': 'photos',
-        'login': 'login',
-        'program': 'program',
-        'locations': 'locations',
-        'login-process': 'login-process',
-        'logout': () => {
+        'welkom': 'home',
+        // 'aanmeldformulier': 'profile',
+        // 'camera': 'camera',
+        // 'fotos': 'photos',
+        'inloggen': 'login',
+        // 'programma': 'program',
+        // 'locaties': 'locations',
+        'uitloggen': () => {
           localStorage.removeItem('mail');
           localStorage.removeItem('one-time-login');
           this.dispatchEvent(new CustomEvent('profile.change'));
@@ -43,8 +43,8 @@ class App extends EventTarget {
 
     this.checkUrlForCredentials();
 
-    if (!localStorage.getItem('mail') || !localStorage.getItem('one-time-login')) {
-      app.router.navigate('login');
+    if ((!localStorage.getItem('mail') || !localStorage.getItem('one-time-login')) && app.router.currentRoute !== 'welkom') {
+      app.router.navigate('home');
     }
 
     this.getProfile();

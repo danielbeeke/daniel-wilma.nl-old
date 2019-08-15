@@ -1,10 +1,9 @@
 form {
-  flex: 1 1 calc(100% + 40px);
-  width: calc(100% + 40px);
+  flex: 1 1 calc(100%);
+  width: calc(100%);
   display: flex;
   flex-wrap: wrap;
   transition: opacity .3s ease-in-out, transform .3s ease-in-out;
-  margin: 0 -20px;
 
   &.hidden {
     padding: 0;
@@ -46,6 +45,7 @@ input[type="radio"] {
   transition: all .3s cubic-bezier(.2,.1,.29,.98);
   max-height: 160px;
   margin: 0 20px;
+  //max-width: 400px;
   transform: translate(0, 0);
   justify-content: flex-end;
 

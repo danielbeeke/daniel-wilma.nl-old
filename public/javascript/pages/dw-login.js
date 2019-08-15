@@ -6,7 +6,10 @@ customElements.define('dw-login', class DwLogin extends HTMLElement {
     this.mail = '';
     this._status = 'rest';
     this.message = '';
+  }
 
+  connectedCallback () {
+    this.innerHTML = `<h1 class="page-title">Inloggen</h1>`;
     this.form = document.createElement('form', { is: 'dw-form' });
 
     this.form.schema = [

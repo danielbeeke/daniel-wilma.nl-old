@@ -1,10 +1,7 @@
 dw-camera {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
+  min-height: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
 
   .view, .sensor, .output {
     position: fixed;
@@ -24,9 +21,9 @@ dw-camera {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 0;
+    bottom: 40px;
     transition: none;
-    max-width: 600px;
+    max-width: $max-width;
 
     .form-item-submit {
       button {
@@ -36,6 +33,7 @@ dw-camera {
 
     .form-item {
       align-items: flex-start;
+      max-width: 100%;
     }
 
     .field-label {
@@ -92,7 +90,7 @@ dw-camera {
     border: 0;
     padding: 15px;
     fill: white;
-    background-color: $color-success;
+    background-color: #437229;
     transform: translateY(0);
 
     @media only screen and (min-width: 600px) {
@@ -164,7 +162,7 @@ dw-camera {
       transform: translateX(0) translateX(calc(50vw - 100% - 15px));
 
       @media only screen and (min-width: 600px) {
-        transform: translateX(0) translateX(calc(300px - 100% - 20px));
+        transform: translateX(0) translateX(calc(#{$max-width / 2} - 100% - 10px));
       }
 
       &:before,

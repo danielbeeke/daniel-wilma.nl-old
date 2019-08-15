@@ -11,7 +11,7 @@ customElements.define('dw-camera', class DwCamera extends HTMLElement {
     if (this.form) {
       this.form.remove();
     }
-    this.form = document.createElement('dw-form');
+    this.form = document.createElement('form', { is: 'dw-form'});
 
     this.form.schema = [
       {

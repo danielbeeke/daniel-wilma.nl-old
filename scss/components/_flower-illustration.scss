@@ -1,0 +1,46 @@
+.flower-illustration {
+  position: relative;
+
+  .flowers {
+    display: block;
+    opacity: 0;
+    animation: 3s fadeInFlowers forwards;
+  }
+
+  .shadows,
+  .text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: 2s fadeInText 1s forwards;
+  }
+
+  .text {
+    z-index: 2;
+
+    path {
+      fill: white;
+    }
+  }
+
+  .shadows {
+    z-index: -1;
+    filter: blur(3px);
+  }
+}
+
+@keyframes fadeInFlowers {
+  0% { opacity: 0; transform: translateY(-4%); }
+  20% { opacity: 0; transform: translateY(-4%); }
+  65% { opacity: 1; transform: translateY(0%); }
+  100% { opacity: 1; transform: translateY(0%); }
+}
+
+@keyframes fadeInText {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

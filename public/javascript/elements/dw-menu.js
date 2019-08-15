@@ -1,7 +1,12 @@
 customElements.define('dw-menu', class DwMenu extends HTMLElement {
 
   connectedCallback () {
-    this.innerHTML = this.menuIcon() + '<div class="menu"><div class="menu-wrapper"><h1 class="page-title">Menu</h1><div class="inner"></div></div></div>';
+    this.innerHTML = this.menuIcon() + `
+        <div class="menu"><div class="menu-wrapper">
+          <h1 class="page-title">Menu, <span class="small">Waar, wanneer, vertel!</span></h1>
+          <div class="inner"></div>
+          </div>
+        </div>`;
     this.toggle = this.querySelector('.menu-toggle');
 
     this.toggle.addEventListener('click', () => {
@@ -27,7 +32,7 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
         previouslyActive.classList.remove('active');
       }
 
-      let newActive = this.querySelector(`.menu-link[href="#${path}"]`);
+      let newActive = this.querySelector(`.menu-link[href="#/${path}"]`);
       if (newActive) {
         newActive.classList.add('active');
       }
@@ -74,21 +79,23 @@ customElements.define('dw-menu', class DwMenu extends HTMLElement {
 
   anonymous () {
     return `        
-      <a class="menu-link" href="#login">Inloggen</a>
-      <a class="menu-link" href="#locations">Locaties</a>
-      <a class="menu-link" href="#information">Informatie</a>
+<!--      <a class="menu-link" href="#/welkom">Welkom</a>-->
+<!--      <a class="menu-link" href="#/locaties">Locaties</a>-->
+<!--      <a class="menu-link" href="#/programma">Programma</a>-->
+      <a class="menu-link" href="#/inloggen">Inloggen</a>
     `;
   }
 
   authenticated () {
     return `
-      <a class="menu-link" href="#program">Programma</a>
-      <a class="menu-link" href="#locations">Locaties</a>
-      <a class="menu-link" href="#profile">Aanmeldformulier</a>
-      <span>
-        <a class="menu-link" href="#camera">Camera</a><span class="separator"> / </span><a class="menu-link" href="#photos">Foto's</a>
-      </span>
-      <a class="menu-link" href="#logout">Uitloggen</a>
+<!--      <a class="menu-link" href="#/welkom">Welkom</a>-->
+<!--      <a class="menu-link" href="#/programma">Programma</a>-->
+<!--      <a class="menu-link" href="#/locaties">Locaties</a>-->
+<!--      <a class="menu-link" href="#/aanmeldformulier">Aanmeldformulier</a>-->
+<!--      <span>-->
+<!--        <a class="menu-link" href="#/camera">Camera</a><span class="separator"> / </span><a class="menu-link" href="#/fotos">Foto's</a>-->
+<!--      </span>-->
+      <a class="menu-link" href="#/uitloggen">Uitloggen</a>
     `;
   }
 

@@ -17,7 +17,7 @@ $dot-size: 4px;
     width: $dot-size;
     height: $dot-size;
     border-radius: 50%;
-    background-color: lighten($color-secondary, 20);
+    background-color: $color-secondary;
     transition: all .4s $bezier 0s;
     position: absolute;
     transform-origin: $dot-size / 2;

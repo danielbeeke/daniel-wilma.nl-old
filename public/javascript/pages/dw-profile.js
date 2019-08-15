@@ -47,29 +47,17 @@ customElements.define('dw-profile', class DwProfile extends HTMLElement {
         visible: { 'KOMT': 'YES' }
       },
       {
-        name: 'ADRES.addr1',
-        label: 'Straat en huisnummer',
-        type: 'text',
-        visible: { 'KOMT': 'YES' }
-      },
-      {
-        name: 'ADRES.zip',
-        label: 'Postcode',
-        type: 'text',
-        visible: { 'KOMT': 'YES' }
-      },
-      {
-        name: 'ADRES.city',
-        label: 'Woonplaats',
-        type: 'text',
-        visible: { 'KOMT': 'YES' }
-      },
-      {
         name: 'PERSONEN',
         min: 1,
         max: 10,
         label: 'Aantal personen',
         type: 'number',
+        visible: { 'KOMT': 'YES' }
+      },
+      {
+        name: 'EMAIL',
+        label: 'Email',
+        type: 'email',
         visible: { 'KOMT': 'YES' }
       },
       {
