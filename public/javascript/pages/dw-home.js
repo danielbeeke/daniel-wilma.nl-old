@@ -7,7 +7,6 @@ customElements.define('dw-home', class DwHome extends HTMLElement {
         <img class="flowers" src="/images/flowers.png" alt="Daniël & Wilma">
         <iframe class="shadows" class="svg" src="/images/shadows.svg" onload="svger(this)"></iframe>      
       </div>
-      <dw-profile></dw-profile>
     `;
   }
 

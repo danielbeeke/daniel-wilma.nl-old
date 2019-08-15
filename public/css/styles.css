@@ -117,7 +117,9 @@ button {
     background-position: 50px 50px; } }
 
 .flower-illustration {
-  position: relative; }
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto; }
   .flower-illustration .flowers {
     display: block;
     opacity: 0;
