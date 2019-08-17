@@ -1,8 +1,10 @@
 html {
   height: 100%;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 24px;
+  overflow-x: hidden;
   font-family: 'Old Standard TT', serif;
+  text-align: center;
 }
 
 body {
@@ -19,7 +21,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Questrial', sans-serif;
   text-transform: uppercase;
-  letter-spacing: 6px;
+  font-weight: 100;
+  line-height: 2.1;
+  letter-spacing: 2px;
 }
 
 img {
@@ -28,4 +32,15 @@ img {
 
 iframe {
   border: 0;
+}
+
+a:link,
+a:visited {
+  color: $color-tertiary;
+}
+
+@media only screen and (min-width: 540px) {
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 6px;
+  }
 }

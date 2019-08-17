@@ -2,14 +2,32 @@
   position: relative;
   max-width: $max-width;
   margin: 0 auto;
+  width: 100%;
+  z-index: 2;
+
+  .text {
+    position: relative;
+    z-index: 4;
+  }
+
+  .text-shadow {
+    z-index: -2;
+  }
 
   .flowers {
     display: block;
     opacity: 0;
     animation: 3s fadeInFlowers forwards;
+    z-index: 3;
   }
 
-  .shadows,
+  .flowers-shadow {
+    position: relative;
+    z-index: -1;
+  }
+
+  .flowers-shadow,
+  .text-shadow,
   .text {
     position: absolute;
     left: 0;
@@ -18,19 +36,6 @@
     height: 100%;
     opacity: 0;
     animation: 2s fadeInText 1s forwards;
-  }
-
-  .text {
-    z-index: 2;
-
-    path {
-      fill: white;
-    }
-  }
-
-  .shadows {
-    z-index: -1;
-    filter: blur(3px);
   }
 }
 

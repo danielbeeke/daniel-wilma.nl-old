@@ -1,0 +1,46 @@
+.site-introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  margin-bottom: 80px;
+  animation: 2s fadeInIntroduction 2s forwards;
+
+  .header {
+    font-family: 'Old Standard TT', serif;
+    text-transform: none;
+    font-weight: 100;
+    letter-spacing: 1px;
+    line-height: 38px;
+  }
+
+  .footer {
+    line-height: 28px;
+    font-size: 16px;
+  }
+}
+
+@keyframes fadeInIntroduction {
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media only screen and (min-width: 540px) {
+  .site-introduction {
+    margin-bottom: 70px;
+    margin-top: -30px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .site-introduction {
+    margin-top: -40px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .site-introduction {
+    margin-top: -90px;
+  }
+}

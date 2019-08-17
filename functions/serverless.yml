@@ -12,36 +12,12 @@ provider:
   role: arn:aws:iam::622681756486:role/service-role/developer
 
 functions:
-  getProfile:
-    handler: getProfile.getProfile
+  saveForm:
+    handler: saveForm.saveForm
     events:
       - http:
-          path: getProfile
-          method: get
-  updateProfile:
-    handler: updateProfile.updateProfile
-    events:
-      - http:
-          path: updateProfile
+          path: saveForm
           method: post
-  uploadPhoto:
-    handler: uploadPhoto.uploadPhoto
-    events:
-      - http:
-          path: uploadPhoto
-          method: post
-  welcomeMail:
-    handler: welcomeMail.welcomeMail
-    events:
-      - http:
-          path: welcomeMail
-          method: get
-  getPhotos:
-    handler: getPhotos.getPhotos
-    events:
-      - http:
-          path: getPhotos
-          method: get
 
 plugins:
   - serverless-webpack

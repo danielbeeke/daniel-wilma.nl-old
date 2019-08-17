@@ -67,3 +67,6 @@ node_modules/
 .idea
 serviceAccountKey.json
 settings.json
+settings.js
+.publish
+dist

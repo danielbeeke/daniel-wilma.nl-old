@@ -1,11 +1,10 @@
-button {
+.button {
   font-size: 20px;
   border-radius: 15px;
   padding: 15px;
   appearance: none;
-  border: 1px solid $color-text;
-  color: $color-text;
-  font-weight: 100;
+  border: 1px solid $color-tertiary;
+  color: $color-tertiary;
   background-color: transparent;
   cursor: pointer;
   margin-top: 30px;
@@ -13,13 +12,15 @@ button {
   text-transform: uppercase;
   letter-spacing: 4px;
   transition: all .3s ease-in-out;
+  line-height: 25px;
   position: relative;
-  align-self: flex-start;
   text-align: center;
+  font-family: 'Questrial', sans-serif;
+  font-weight: 100;
 
   &:hover {
-    background-color: $color-text;
-    color: black;
+    background-color: $color-tertiary;
+    color: $color-primary;
   }
 
   &.not-clickable {
