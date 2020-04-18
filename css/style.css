@@ -221,13 +221,19 @@ img[alt="author-image"] {
 
 @media print {
   body {
+    background: white !important;
     padding: 0;
     grid-row-gap: 0; }
   .page {
-    min-height: 1321px;
-    page-break-after: always; }
+    box-shadow: none;
+    background: white;
+    height: 1597px; }
+  .introduction-mobile + .page {
+    height: 1322px; }
   .page-break {
-    display: none; } }
+    display: none; }
+  .header {
+    box-shadow: none !important; } }
 
 body {
   height: 100%;
@@ -797,7 +803,3 @@ img {
       height: 100px;
       background: #efefef;
       z-index: -1; } }
-
-@media print {
-  .page:last-of-type .right-half {
-    margin-top: auto; } }
