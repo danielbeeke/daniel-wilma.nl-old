@@ -14,11 +14,11 @@ window.addEventListener('scroll', () => {
   let contentScrolled = window.pageYOffset;
   let bodyHeight = window.document.getElementsByTagName("body")[0].offsetHeight;
   let total = bodyHeight - heightOfWindow;
-  percentageRead.style.width = (Math.ceil(parseInt((contentScrolled/total) * 100)) + 2) + '%';
+  percentageRead.style.width = (Math.ceil(parseInt((contentScrolled/total) * 100))) + '%';
 
   let currentActive = [];
   mainItems.forEach(item => {
-    if (item.getBoundingClientRect().top < 80) {
+    if (item.getBoundingClientRect().top < 70) {
       currentActive.push(item);
     }
 
@@ -51,7 +51,7 @@ window.addEventListener('scroll', () => {
 let scrollToPart = item => {
   if (window.outerWidth > 800) return;
   let firstPart = item.nextElementSibling;
-  const y = firstPart.getBoundingClientRect().y + window.pageYOffset - 125;
+  const y = firstPart.getBoundingClientRect().y + window.pageYOffset - 117;
   window.scrollTo({ top: y, behavior: 'smooth'});
 };
 
@@ -86,11 +86,15 @@ goIndex.addEventListener('click', () => {
 });
 
 let indexPopup = document.querySelector('.index-popup');
-items.forEach(item => {
+items.forEach((item, index) => {
   let link = document.createElement('span');
   link.classList.add('index-link');
   link.innerHTML = item.innerHTML;
   link.querySelector('a').remove();
+
+  if (index === 0) {
+    link.innerText = 'Introductie';
+  }
 
   let parent = item.closest('.sidebar') ? 'other' : 'main';
 
@@ -165,4 +169,25 @@ let closePopup = document.querySelector('.close-index-popup');
 
 closePopup.addEventListener('click', () => {
   document.documentElement.classList.remove('show-index');
+});
+
+let readMores = document.querySelectorAll('.read-more');
+
+readMores.forEach(readMore => {
+  readMore.oldHeight = readMore.clientHeight;
+  let button = readMore.querySelector('.read-more-toggle');
+  readMore.style.height = '90px';
+
+  button.addEventListener('click', () => {
+    if (readMore.classList.contains('visible')) {
+      readMore.classList.remove('visible');
+      readMore.removeAttribute('style');
+      readMore.style.height = '90px';
+    }
+    else {
+      readMore.classList.add('visible');
+      readMore.style.height = readMore.oldHeight + 'px';
+
+    }
+  });
 });
