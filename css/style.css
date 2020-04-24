@@ -507,7 +507,7 @@ img {
       display: block;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.7); }
-    .index-popup .other {
+    .index-popup .main {
       margin-top: 40px; }
     .index-popup .group {
       transition: all .3s ease-in-out;
@@ -553,7 +553,10 @@ img {
       .index-popup .main .index-link:not(:last-child) {
         border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
     .index-popup .other {
-      padding-bottom: 60px; }
+      padding-bottom: 20px; }
+      .index-popup .other .list {
+        display: flex;
+        flex-direction: column; }
       .index-popup .other em {
         font-style: normal; }
       .index-popup .other .index-link {
@@ -908,13 +911,22 @@ img {
 @media only screen and (max-width: 800px) {
   .nieuwsbrief-1 .sidebar {
     display: none; }
+  .nieuwsbrief-1 .other .list div:nth-child(1) {
+    order: 4; }
+  .nieuwsbrief-1 .other .list div:nth-child(2) {
+    order: 5; }
+  .nieuwsbrief-1 .other .list div:nth-child(3) {
+    order: 1; }
+  .nieuwsbrief-1 .other .list div:nth-child(4) {
+    order: 4; }
+  .nieuwsbrief-1 .other .list div:nth-child(5) {
+    order: 2; }
   .nieuwsbrief-1 #Helpt-u-mee {
     position: relative;
-    top: 65px;
+    top: 30px;
     z-index: 6;
     left: 50%;
     transform: translateX(-50%);
-    margin-right: -100%;
     float: left; }
     .nieuwsbrief-1 #Helpt-u-mee a:not(.headerlink) {
       display: block;

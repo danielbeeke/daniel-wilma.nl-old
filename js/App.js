@@ -118,7 +118,7 @@ items.forEach((item, index) => {
       groupElement.innerHTML = groupItem;
       group.appendChild(groupElement);
     });
-    indexPopup.querySelector('.other').appendChild(wrapper);
+    indexPopup.querySelector('.other .list').appendChild(wrapper);
     setTimeout(() => {
       group.oldHeight = group.clientHeight;
       group.style.height = 0;
@@ -161,7 +161,7 @@ items.forEach((item, index) => {
       }, { once: true });
       document.documentElement.classList.remove('show-index');
     });
-    indexPopup.querySelector('.main').appendChild(link);
+    indexPopup.querySelector('.main .list').appendChild(link);
   }
 });
 
@@ -196,13 +196,11 @@ let donateButton = document.querySelector('#Helpt-u-mee');
 if (donateButton) {
   donateButton.addEventListener('click', (event) => {
     event.preventDefault();
-    goIndex.click();
     let menuItems = document.querySelectorAll('.other .index-link');
     let menuItem = menuItems[menuItems.length - 1];
-
     if (!menuItem.classList.contains('active')) menuItem.click();
-    menuItem.scrollIntoView({
-      behavior: 'smooth'
-    });
+    let rect = menuItem.getBoundingClientRect();
+    console.log(rect);
+    goIndex.click();
   });
 }
