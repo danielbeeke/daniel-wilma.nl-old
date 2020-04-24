@@ -191,3 +191,18 @@ readMores.forEach(readMore => {
     }
   });
 });
+
+let donateButton = document.querySelector('#Helpt-u-mee');
+if (donateButton) {
+  donateButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    goIndex.click();
+    let menuItems = document.querySelectorAll('.other .index-link');
+    let menuItem = menuItems[menuItems.length - 1];
+
+    if (!menuItem.classList.contains('active')) menuItem.click();
+    menuItem.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+}

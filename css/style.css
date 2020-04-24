@@ -334,12 +334,14 @@ img {
 @media print {
   img {
     width: 100%; }
+  .hide-on-desktop,
   .only-mobile {
     display: none !important; } }
 
 @media only screen and (min-width: 801px) {
   img {
     width: 100%; }
+  .hide-on-desktop,
   .only-mobile {
     display: none !important; } }
 
@@ -905,7 +907,25 @@ img {
 
 @media only screen and (max-width: 800px) {
   .nieuwsbrief-1 .sidebar {
-    display: none; } }
+    display: none; }
+  .nieuwsbrief-1 #Helpt-u-mee {
+    position: relative;
+    top: 65px;
+    z-index: 6;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-right: -100%;
+    float: left; }
+    .nieuwsbrief-1 #Helpt-u-mee a:not(.headerlink) {
+      display: block;
+      padding: 10px 20px;
+      font-variant: small-caps;
+      text-decoration: none;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+      color: white;
+      background: #D22630;
+      border-radius: 30px; } }
 
 @media print {
   .nieuwsbrief-1 .page .left {
