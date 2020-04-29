@@ -508,7 +508,8 @@ img {
       font-size: 14px;
       color: rgba(255, 255, 255, 0.7); }
     .index-popup .main {
-      margin-top: 40px; }
+      margin-top: 40px;
+      margin-bottom: 60px; }
     .index-popup .group {
       transition: all .3s ease-in-out;
       padding: 0 20px;
@@ -596,7 +597,7 @@ img {
     transition: opacity .3s ease-in-out;
     pointer-events: none; }
   html.show-index body:before {
-    opacity: .6;
+    opacity: .8;
     pointer-events: all; } }
 
 @media print {
@@ -781,6 +782,22 @@ img {
 @media only screen and (min-width: 801px) {
   .personal-story h2 {
     margin-left: 20px; } }
+
+.posts-wrapper {
+  max-width: 500px;
+  margin: 0 auto; }
+
+.post-teaser {
+  display: flex;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  border: 1px solid #D22630;
+  padding: 6px; }
+  .post-teaser .texts {
+    margin-left: 20px; }
+    .post-teaser .texts .title {
+      padding-top: 0; }
 
 @media only screen and (max-width: 800px) {
   .read-more {
