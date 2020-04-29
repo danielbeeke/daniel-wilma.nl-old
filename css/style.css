@@ -12,6 +12,12 @@
     .page > div:not(.header):not(.introduction-mobile) img:not([alt="author-image"]) {
       margin-left: -20px; } }
 
+@media only screen and (min-width: 1250px) {
+  body {
+    padding: 80px 0;
+    display: grid;
+    grid-row-gap: 100px; } }
+
 @media print {
   img[alt="author-image-mobile"] {
     display: none; }
@@ -20,10 +26,6 @@
     border-radius: 50%;
     float: right;
     margin: 15px; }
-  body {
-    padding: 80px 0;
-    display: grid;
-    grid-row-gap: 100px; }
   .page-break {
     height: 80px;
     page-break-after: always; }
@@ -131,10 +133,6 @@
     border-radius: 50%;
     float: right;
     margin: 15px; }
-  body {
-    padding: 80px 0;
-    display: grid;
-    grid-row-gap: 100px; }
   .page-break {
     height: 80px;
     page-break-after: always; }
