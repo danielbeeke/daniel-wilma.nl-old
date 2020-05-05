@@ -456,12 +456,10 @@ img {
     .horizontal-bar img {
       flex: 0 0 50%;
       display: block;
-      margin: -100px 0;
-      object-fit: cover;
-      position: relative;
-      top: -60px; }
+      margin: -40px 0;
+      object-fit: cover; }
     .horizontal-bar p {
-      margin: 0;
+      margin: 20px 0;
       display: block;
       padding-left: 60px;
       padding-right: 40px;
@@ -482,12 +480,10 @@ img {
     .horizontal-bar img {
       flex: 0 0 50%;
       display: block;
-      margin: -100px 0;
-      object-fit: cover;
-      position: relative;
-      top: -60px; }
+      margin: -40px 0;
+      object-fit: cover; }
     .horizontal-bar p {
-      margin: 0;
+      margin: 20px 0;
       display: block;
       padding-left: 60px;
       padding-right: 40px;
