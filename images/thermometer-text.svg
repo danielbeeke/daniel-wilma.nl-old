@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 130 191.98"
+   xml:space="preserve"
+   id="svg116"
+   sodipodi:docname="thermometer-text.svg"
+   width="130"
+   height="191.98"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"><metadata
+   id="metadata122"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs120">
+	
+	
+	
+	
+	
+	
+</defs><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="2560"
+   inkscape:window-height="1337"
+   id="namedview118"
+   showgrid="false"
+   inkscape:zoom="3.4769706"
+   inkscape:cx="-53.978177"
+   inkscape:cy="113.43204"
+   inkscape:window-x="1920"
+   inkscape:window-y="27"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg116"
+   showguides="false" />
+<style
+   type="text/css"
+   id="style2">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#1E1E1C;}
+	.st2{fill:#E0E5E9;}
+	.st3{fill:#77C473;}
+	.st4{fill:#1D1D1D;}
+	.st5{fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:10;}
+</style>
+<g
+   id="g18"
+   transform="translate(26,4.2724609e-6)">
+		<g
+   id="g8"
+   transform="matrix(2.3454476,0,0,2.3454476,-57.819651,-48.399645)">
+			<path
+   style="fill:#ffffff"
+   inkscape:connector-curvature="0"
+   id="path4"
+   d="m 49.85,87.65 c -2.1,4.8 0.1,10.5 4.9,12.6 4.8,2.1 10.5,-0.1 12.6,-4.9 1.8,-4.1 0.5,-8.9 -3,-11.5 v -39.4 c 0,-3.2 -2.5,-5.8 -5.7,-5.8 -3.1,0 -5.7,2.5 -5.7,5.7 v 39.4 c -1.3,1 -2.3,2.3 -3,3.8 z"
+   class="st0" />
+			<path
+   style="fill:#1e1e1c"
+   inkscape:connector-curvature="0"
+   id="path6"
+   d="m 58.55,101.65 c -1.4,0 -2.8,-0.3 -4.1,-0.9 -5,-2.3 -7.4,-8.2 -5.1,-13.3 v 0 c 0.7,-1.5 1.7,-2.8 3,-3.8 v -39.2 c 0,-3.5 2.8,-6.3 6.3,-6.3 3.5,0 6.3,2.8 6.3,6.2 v 39.1 c 3.6,2.9 4.9,7.8 3,12 -1.6,3.8 -5.5,6.2 -9.4,6.2 z m 0,-62.5 c -2.9,0 -5.2,2.3 -5.2,5.2 v 39.8 l -0.2,0.1 c -1.2,1 -2.2,2.2 -2.8,3.6 v 0 c -2.1,4.6 0,10 4.6,12 4.6,2.1 10,0 12,-4.6 1.8,-3.9 0.6,-8.3 -2.8,-10.9 l -0.2,-0.2 v -39.7 c 0,-2.9 -2.3,-5.3 -5.2,-5.3 z"
+   class="st1" />
+		</g>
+		<g
+   id="g16"
+   transform="matrix(2.3454476,0,0,2.3454476,-57.819651,-48.399645)">
+			<path
+   style="fill:#e0e5e9"
+   inkscape:connector-curvature="0"
+   id="path10"
+   d="m 58.25,79.05 c -0.8,0 -1.5,-0.7 -1.5,-1.5 v -31.4 c 0,-0.8 0.7,-1.5 1.5,-1.5 h 0.8 c 0.8,0 1.5,0.7 1.5,1.5 v 31.4 c 0,0.8 -0.7,1.5 -1.5,1.5 h -0.7 z"
+   class="st2" />
+			<rect
+   style="fill:#77c473"
+   id="rect12"
+   height="21"
+   width="3.8"
+   class="st3"
+   y="73.849998"
+   x="56.849998" />
+			<circle
+   style="fill:#77c473"
+   id="circle14"
+   r="5.9000001"
+   cy="91.349998"
+   cx="58.75"
+   class="st3" />
+		</g>
+	</g><path
+   style="fill:#1e1e1c"
+   inkscape:connector-curvature="0"
+   id="path20"
+   d="m 74.43,57.080004 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 9.9 v -2 z m -6.1,9.6 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 16 v -2 z"
+   class="st1" /><path
+   style="fill:#77c473"
+   inkscape:connector-curvature="0"
+   id="path22"
+   d="m 74.43,76.380004 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 9.9 v -2 z"
+   class="st3" /><path
+   style="fill:#1e1e1c"
+   inkscape:connector-curvature="0"
+   id="path24"
+   d="m 68.33,86.080004 c -0.5,0 -1,0.5 -1,1 0,0.6 0.4,1 1,1 h 16 v -2 z m 6.1,9.6 c -0.5,0 -1,0.5 -1,1 0,0.6 0.4,1 1,1 h 9.9 v -2 z M 68.33,105.38 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 16 v -2 z m 6.1,9.7 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 9.9 v -2 z m -6.1,9.6 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 16 v -2 z m 6.1,9.7 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 9.9 v -2 z m -6.1,9.7 c -0.5,0 -1,0.4 -1,1 0,0.6 0.4,1 1,1 h 16 v -2 z"
+   class="st1" />
+<g
+   id="Laag_2"
+   transform="translate(26,4.2724609e-6)">
+	<g
+   id="g103">
+		<g
+   id="g101">
+			<g
+   id="g99">
+				<path
+   class="st4"
+   d="m 24.43,83.13 c 0.11,-0.01 0.25,-0.04 0.43,-0.12 0.17,-0.06 0.46,-0.29 0.42,-0.21 0.15,-0.05 0.4,-0.14 0.62,-0.23 0.46,-0.18 0.92,-0.39 1.38,-0.62 0.92,-0.46 1.82,-1 2.71,-1.53 0.98,-0.58 1.97,-1.15 2.96,-1.79 l 0.82,-0.55 c 0.4,-0.29 0.8,-0.59 1.03,-0.93 0.12,-0.17 0.17,-0.34 0.17,-0.54 v -0.08 c 0.02,-0.01 -0.04,-0.03 0.04,-0.04 L 35,76.46 C 34.99,76.42 34.98,76.38 34.96,76.34 34.92,76.26 34.92,76.18 34.84,76.09 34.62,75.74 34.22,75.41 33.9,75.1 32.42,73.81 31,72.72 29.64,71.46 29.31,71.15 28.98,70.83 28.67,70.49 28.38,70.14 28.1,69.77 27.83,69.4 27.56,69.03 27.3,68.65 27.05,68.26 c -0.25,-0.4 -0.53,-0.8 -0.62,-1.18 -0.03,-0.15 -0.42,-0.13 -0.48,0.08 -0.11,0.47 0.03,0.99 0.16,1.4 0.1,0.38 0.29,0.83 0.49,1.22 0.42,0.8 0.95,1.59 1.67,2.26 1.37,1.32 2.96,2.38 4.15,3.48 l 0.91,0.84 c 0.03,0.03 0.06,0.06 0.08,0.09 0.01,0.04 -0.02,0.08 -0.04,0.11 -0.05,0.06 -0.11,0.12 -0.17,0.17 -0.13,0.1 -0.25,0.19 -0.4,0.29 -0.93,0.6 -1.93,1.14 -2.93,1.68 -1,0.54 -1.99,1.08 -2.98,1.66 -0.49,0.29 -0.98,0.58 -1.45,0.9 -0.24,0.16 -0.47,0.32 -0.71,0.51 -0.26,0.21 -0.38,0.4 -0.63,0.54 -0.39,0.26 0.05,0.85 0.33,0.82 z"
+   id="path97"
+   inkscape:connector-curvature="0"
+   style="fill:#1d1d1d" />
+			</g>
+		</g>
+	</g>
+	
+	<g
+   id="g113">
+		<g
+   id="g111">
+			<g
+   id="g109">
+				<path
+   class="st4"
+   d="M 27.3,74.1 C 23.51,73.13 19.83,71.61 16.31,69.56 14.4,68.44 12.6,67.19 11.1,65.65 9.6,64.13 8.44,62.27 7.58,60.27 6.14,56.93 5.58,53.27 5.73,49.64 5.8,47.82 6.05,46 6.43,44.2 c 0.2,-0.9 0.42,-1.8 0.69,-2.68 0.28,-0.85 0.7,-1.74 1.41,-2.12 0.3,-0.14 0.3,-0.55 -0.07,-0.51 -0.85,0.14 -1.58,0.9 -2.01,1.69 -0.46,0.82 -0.73,1.63 -1.01,2.48 -0.53,1.7 -0.89,3.56 -1.03,5.46 -0.31,3.82 0.36,7.74 1.43,10.88 0.73,2.2 1.78,4.32 3.24,6.15 1.46,1.84 3.29,3.33 5.21,4.59 3.82,2.49 8.13,4.58 12.73,4.82 0.81,0.03 1.09,-0.66 0.28,-0.86 z"
+   id="path107"
+   inkscape:connector-curvature="0"
+   style="fill:#1d1d1d" />
+			</g>
+		</g>
+	</g>
+</g>
+<text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.42316628px;line-height:1.25;font-family:Mogra;-inkscape-font-specification:'Mogra, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999982"
+   x="9.0254459"
+   y="14.817681"
+   id="text1118"><tspan
+     sodipodi:role="line"
+     id="tspan1116"
+     x="9.0254459"
+     y="14.817681"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.42316628px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.99999982">Bij 80% mogen</tspan><tspan
+     sodipodi:role="line"
+     x="9.0254459"
+     y="28.310684"
+     id="tspan1120"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.42316628px;font-family:'Roboto Slab';-inkscape-font-specification:'Roboto Slab';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.99999982">ze vertrekken!</tspan></text>
+</svg>

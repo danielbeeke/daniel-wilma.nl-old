@@ -5,7 +5,8 @@ let navigatorHelper = document.querySelector('.navigator-helper');
  * @type {NodeListOf<Element>}
  */
 let items = document.querySelectorAll('h1, h2');
-let mainItems = [...items].filter(item => !item.closest('.sidebar'));
+
+let mainItems = [...items].filter(item => !item.closest('.sidebar') && !item.closest('.hide-on-mobile'));
 let percentageRead = document.querySelector('.percentage-read');
 percentageRead.remove();
 
@@ -87,6 +88,8 @@ goIndex.addEventListener('click', () => {
 
 let indexPopup = document.querySelector('.index-popup');
 items.forEach((item, index) => {
+  if (item.closest('.hide-on-mobile')) return;
+
   let link = document.createElement('span');
   link.classList.add('index-link');
   link.innerHTML = item.innerHTML;
@@ -103,7 +106,12 @@ items.forEach((item, index) => {
     let groupItems = [];
     while (pointer) {
       if (pointer.nodeName !== 'H2') {
-        groupItems.push(pointer.innerHTML);
+        if (pointer.nodeName === 'UL') {
+          groupItems.push('<ul>' + pointer.innerHTML + '</ul>');
+        }
+        else {
+          groupItems.push(pointer.innerHTML);
+        }
       }
       pointer = pointer.nodeName === 'H2' ? null : pointer.nextElementSibling;
     }
@@ -200,7 +208,6 @@ if (donateButton) {
     let menuItem = menuItems[menuItems.length - 1];
     if (!menuItem.classList.contains('active')) menuItem.click();
     let rect = menuItem.getBoundingClientRect();
-    console.log(rect);
     goIndex.click();
   });
 }
