@@ -8,7 +8,8 @@ let items = document.querySelectorAll('h1, h2');
 
 let mainItems = [...items].filter(item => !item.closest('.sidebar') && !item.closest('.hide-on-mobile'));
 let percentageRead = document.querySelector('.percentage-read');
-percentageRead.remove();
+if (percentageRead) {
+  percentageRead.remove();
 
 window.addEventListener('scroll', () => {
   let heightOfWindow = window.innerHeight;
@@ -48,6 +49,7 @@ window.addEventListener('scroll', () => {
     percentageRead.remove();
   }
 });
+}
 
 let scrollToPart = item => {
   if (window.outerWidth > 800) return;
@@ -78,13 +80,15 @@ let goToPart = function (direction) {
   }
 };
 
-goUp.addEventListener('click', goToPart('up'));
-goDown.addEventListener('click', goToPart('down'));
-navigatorHelper.remove();
+if (goUp) {
+  goUp.addEventListener('click', goToPart('up'));
+  goDown.addEventListener('click', goToPart('down'));
+  navigatorHelper.remove();
 
-goIndex.addEventListener('click', () => {
-  document.documentElement.classList.add('show-index');
-});
+  goIndex.addEventListener('click', () => {
+    document.documentElement.classList.add('show-index');
+  });
+}
 
 let indexPopup = document.querySelector('.index-popup');
 items.forEach((item, index) => {
@@ -175,9 +179,11 @@ items.forEach((item, index) => {
 
 let closePopup = document.querySelector('.close-index-popup');
 
-closePopup.addEventListener('click', () => {
-  document.documentElement.classList.remove('show-index');
-});
+if (closePopup) {
+  closePopup.addEventListener('click', () => {
+    document.documentElement.classList.remove('show-index');
+  });
+}
 
 let readMores = document.querySelectorAll('.read-more');
 
@@ -210,4 +216,41 @@ if (donateButton) {
     let rect = menuItem.getBoundingClientRect();
     goIndex.click();
   });
+}
+
+// Frontpage code.
+
+let isFrontpage = document.querySelector('.frontpage');
+
+if (isFrontpage) {
+  let tabLinks = document.querySelectorAll('.f-tab-link');
+  tabLinks.forEach(tabLink => {
+    tabLink.addEventListener('click', event => {
+      event.preventDefault()
+
+      let activeTabs = document.querySelectorAll('.f-tab-content.active')
+      activeTabs.forEach(activeTab => activeTab.classList.remove('active'))
+      let activeTabLinks = document.querySelectorAll('.f-tab-link.active')
+      activeTabLinks.forEach(activeTabLink => activeTabLink.classList.remove('active'))
+      tabLink.classList.add('active')
+
+      let tab = document.querySelector(`#${tabLink.dataset.tab}.f-tab-content`)
+      tab.classList.add('active')
+    });
+  });
+}
+
+let newsletterToggle = document.querySelector('.f-toggle-newsletter-archive');
+
+if (newsletterToggle) {
+  let close = document.querySelector('.f-newsletter-archive .f-close');
+
+  let newsletterToggleEvent = event => {
+    let newsletterArchive = document.querySelector('.f-newsletter-archive')
+    newsletterArchive.classList.toggle('active')
+    event.preventDefault()
+  }
+
+  newsletterToggle.addEventListener('click', newsletterToggleEvent)
+  close.addEventListener('click', newsletterToggleEvent)
 }
