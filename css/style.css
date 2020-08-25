@@ -1849,7 +1849,12 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
     margin-top: 120px; } }
 
 @media print {
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns .read-more p:first-child,
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns p:first-child,
+  .nieuwsbrief-1 .page #Hoe-het-begon… + .columns p:first-child {
+    display: none; }
   .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns .read-more p,
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns p,
   .nieuwsbrief-1 .page #Hoe-het-begon… + .columns p {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
@@ -1892,7 +1897,12 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
         bottom: -50px; } }
 
 @media only screen and (min-width: 801px) {
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns .read-more p:first-child,
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns p:first-child,
+  .nieuwsbrief-1 .page #Hoe-het-begon… + .columns p:first-child {
+    display: none; }
   .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns .read-more p,
+  .nieuwsbrief-1 .page #Hoe-het-verder-ging… + .columns p,
   .nieuwsbrief-1 .page #Hoe-het-begon… + .columns p {
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
