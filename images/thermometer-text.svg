@@ -42,13 +42,13 @@
    inkscape:window-height="1337"
    id="namedview118"
    showgrid="false"
-   inkscape:zoom="9.8343579"
-   inkscape:cx="32.637994"
-   inkscape:cy="148.56077"
+   inkscape:zoom="3.4769706"
+   inkscape:cx="193.6795"
+   inkscape:cy="50.672406"
    inkscape:window-x="1920"
    inkscape:window-y="27"
    inkscape:window-maximized="1"
-   inkscape:current-layer="text1118"
+   inkscape:current-layer="g16"
    showguides="false" />
 <style
    type="text/css"
@@ -91,10 +91,10 @@
 			<rect
    style="fill:#77c473"
    id="rect12"
-   height="21"
-   width="3.8"
+   height="26.732651"
+   width="3.7999954"
    class="st3"
-   y="73.849998"
+   y="68.117355"
    x="56.849998" />
 			<circle
    style="fill:#77c473"
@@ -156,8 +156,7 @@
 	</g>
 </g>
 <g
-   aria-label="Bij 80% mogen
-ze vertrekken!"
+   aria-label="Bij 80% mogen ze vertrekken!"
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.42316628px;line-height:1.25;font-family:Mogra;-inkscape-font-specification:'Mogra, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.99999982"
    id="text1118"><path
      d="m 12.633857,7.4074615 q 1.160391,0 1.811839,0.5038543 0.656537,0.4987648 0.656537,1.5013838 0,0.4936753 -0.315545,0.8855624 -0.310455,0.386797 -0.824489,0.575106 0.666717,0.142504 1.053514,0.656537 0.386797,0.514033 0.386797,1.196018 0,1.017887 -0.661627,1.557367 -0.661626,0.534391 -1.791481,0.534391 H 9.3867959 V 14.176412 L 10.216374,14.033908 V 8.1963242 L 9.3867959,8.05382 V 7.4074615 h 0.8295781 z m -1.414864,3.9341345 v 2.692312 h 1.730409 q 0.687074,0 1.063692,-0.335903 0.381708,-0.340992 0.381708,-0.961903 0,-0.651448 -0.320635,-1.022977 -0.315545,-0.371529 -0.972082,-0.371529 z m 0,-0.783773 h 1.674425 q 0.53948,-0.01527 0.870293,-0.320635 0.335903,-0.3053659 0.335903,-0.8448462 0,-0.6005535 -0.376618,-0.8957408 -0.376618,-0.3002768 -1.089139,-0.3002768 h -1.414864 z"

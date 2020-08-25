@@ -521,12 +521,15 @@ img {
       margin-bottom: 15px; }
     .page > .donate > p:last-child {
       margin-bottom: -15px; }
+    .page > .donate .center {
+      padding-bottom: 20px; }
     .page > .donate strong {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
       padding-bottom: 30px;
       padding-top: 30px;
-      text-align: center; }
+      text-align: center;
+      display: none; }
       .page > .donate strong em {
         color: #D22630; }
     .page > .donate img[alt="watering"] {
@@ -573,12 +576,15 @@ img {
       margin-bottom: 15px; }
     .page > .donate > p:last-child {
       margin-bottom: -15px; }
+    .page > .donate .center {
+      padding-bottom: 20px; }
     .page > .donate strong {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
       padding-bottom: 30px;
       padding-top: 30px;
-      text-align: center; }
+      text-align: center;
+      display: none; }
       .page > .donate strong em {
         color: #D22630; }
     .page > .donate img[alt="watering"] {
@@ -855,7 +861,7 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
     @media all and (min-width: 1300px) {
       .frontpage .f-subscribe-newsletter {
         padding-right: 0; } }
-    .frontpage .f-subscribe-newsletter h3 {
+    .frontpage .f-subscribe-newsletter .f-title {
       text-transform: none;
       padding-top: 0; }
     .frontpage .f-subscribe-newsletter .f-subscribe-button {
@@ -865,6 +871,8 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
       border: 0;
       padding: 10px 20px;
       font-weight: bold; }
+    .frontpage .f-subscribe-newsletter .f-title, .frontpage .f-subscribe-newsletter .f-subscribe-button {
+      width: 300px; }
   .frontpage .f-mission-and-about {
     grid-area: left;
     position: relative;
@@ -950,7 +958,8 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
           max-width: 200px; } }
     @media all and (min-width: 1300px) {
       .frontpage .f-sponsors {
-        padding-left: 0; } }
+        padding-left: 0;
+        margin-right: -200px; } }
     .frontpage .f-sponsors h3 {
       font-size: 14px;
       letter-spacing: 1px;
@@ -1157,7 +1166,7 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
     .horizontal-bar img {
       z-index: 3;
       position: relative;
-      flex: 0 0 50%;
+      flex: 0 0 100%;
       display: block;
       margin: 0;
       height: 100%;
@@ -1196,7 +1205,7 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
     .horizontal-bar img {
       z-index: 3;
       position: relative;
-      flex: 0 0 50%;
+      flex: 0 0 100%;
       display: block;
       margin: 0;
       height: 100%;
