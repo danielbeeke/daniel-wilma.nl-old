@@ -240,9 +240,9 @@ if (isFrontpage) {
   });
 }
 
-let newsletterToggle = document.querySelector('.f-toggle-newsletter-archive');
+let newsletterToggles = document.querySelectorAll('.f-toggle-newsletter-archive');
 
-if (newsletterToggle) {
+if (newsletterToggles.length) {
   let close = document.querySelector('.f-newsletter-archive .f-close');
 
   let newsletterToggleEvent = event => {
@@ -251,6 +251,7 @@ if (newsletterToggle) {
     event.preventDefault()
   }
 
-  newsletterToggle.addEventListener('click', newsletterToggleEvent)
+  newsletterToggles.forEach(newsletterToggle => newsletterToggle.addEventListener('click', newsletterToggleEvent))
+
   close.addEventListener('click', newsletterToggleEvent)
 }

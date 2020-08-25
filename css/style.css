@@ -690,7 +690,7 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
           text-align: right; } }
     @media all and (min-width: 1301px) {
       .frontpage .f-hero {
-        padding: 0 0 30px 160px; } }
+        padding: 0 0 30px 180px; } }
   .frontpage .f-menu.f-right {
     grid-area: menuRight;
     justify-content: center; }
@@ -883,17 +883,20 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
       @media all and (min-width: 1181px) {
         .frontpage .f-mission-and-about .f-tab-content {
           border-bottom-left-radius: 30px; } }
-      @media all and (min-width: 961px) {
-        .frontpage .f-mission-and-about .f-tab-content {
-          margin-bottom: 140px;
-          padding: 0 60px 60px; } }
       .frontpage .f-mission-and-about .f-tab-content .f-title {
         font-family: 'Roboto Slab';
         font-size: 34px;
         color: #333;
         text-transform: none;
         word-break: break-word;
-        margin-bottom: 30px; }
+        margin-bottom: 30px;
+        text-align: center; }
+      @media all and (min-width: 961px) {
+        .frontpage .f-mission-and-about .f-tab-content {
+          margin-bottom: 140px;
+          padding: 0 60px 60px; }
+          .frontpage .f-mission-and-about .f-tab-content .f-title {
+            text-align: left; } }
       .frontpage .f-mission-and-about .f-tab-content.active {
         display: block; }
     .frontpage .f-mission-and-about .f-tabs {
@@ -1028,12 +1031,20 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
     .frontpage .f-hide-mobile {
       display: none; } }
   .frontpage .f-author-image {
-    max-width: 140px;
-    float: left;
-    margin-bottom: 0;
-    margin-right: 50px;
-    margin-left: 30px;
-    border-radius: 50%; }
+    width: 100px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block; }
+    @media all and (min-width: 960px) {
+      .frontpage .f-author-image {
+        width: 100%;
+        max-width: 140px;
+        float: left;
+        margin-bottom: 0;
+        margin-right: 50px;
+        margin-top: 0 !important;
+        margin-left: 30px;
+        border-radius: 50%; } }
 
 .header {
   width: 100%;
