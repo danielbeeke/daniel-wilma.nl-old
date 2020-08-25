@@ -620,7 +620,7 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
   background: white;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto auto auto;
-  grid-template-areas: "logo" "menuRight" "right" "left" "sponsor" "newsletter-archive" "newsletter"; }
+  grid-template-areas: "logo" "menuRight" "right" "left" "newsletter-archive" "newsletter" "sponsor"; }
   @media all and (min-width: 961px) {
     .frontpage {
       max-height: 1000px;
