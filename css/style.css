@@ -874,8 +874,9 @@ a[href="https://www.operatiemobilisatie.nl/danielenwilma"] {
       border: 0;
       padding: 10px 20px;
       font-weight: bold; }
-    .frontpage .f-subscribe-newsletter .f-title, .frontpage .f-subscribe-newsletter .f-subscribe-button {
-      width: 300px; }
+    @media all and (min-width: 960px) {
+      .frontpage .f-subscribe-newsletter .f-title, .frontpage .f-subscribe-newsletter .f-subscribe-button {
+        width: 300px; } }
   .frontpage .f-mission-and-about {
     grid-area: left;
     position: relative;
