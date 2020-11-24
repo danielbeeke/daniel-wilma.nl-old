@@ -97,7 +97,9 @@ items.forEach((item, index) => {
   let link = document.createElement('span');
   link.classList.add('index-link');
   link.innerHTML = item.innerHTML;
-  link.querySelector('a').remove();
+  let innerLink = link.querySelector('a')
+
+  if (innerLink)   link.querySelector('a').remove();
 
   if (index === 0) {
     link.innerText = 'Introductie';
@@ -125,6 +127,7 @@ items.forEach((item, index) => {
     wrapper.appendChild(link);
     wrapper.appendChild(group);
     group.classList.add('group');
+    group.dataset.name = link.innerText;
     groupItems.forEach(groupItem => {
       let groupElement = document.createElement('p');
       groupElement.innerHTML = groupItem;
