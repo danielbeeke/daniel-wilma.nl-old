@@ -10,7 +10,7 @@
     "babel-plugin-source-map-support": "^2",
     "babel-preset-env": "^1",
     "serverless": "^1",
-    "serverless-offline": "^5.0.1",
+    "serverless-offline": "^12.0.3",
     "serverless-webpack": "*",
     "webpack": "^4.2.0",
     "webpack-node-externals": "^1.6.0"
